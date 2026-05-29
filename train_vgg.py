@@ -56,53 +56,53 @@ def build_vgg_like_model() -> Sequential:
 
 
 def main(args):
-    # ensure_data()
+    ensure_data()
 
-    # categories = sorted([p.name for p in DATA_DIR.iterdir() if p.is_dir()])
-    # print("Categories:", categories)
+    categories = sorted([p.name for p in DATA_DIR.iterdir() if p.is_dir()])
+    print("Categories:", categories)
 
-    # data = {}
-    # for cat in categories:
-    #     data[cat] = load_category(cat)
-    #     print(f"{cat}: {data[cat].shape}")
+    data = {}
+    for cat in categories:
+        data[cat] = load_category(cat)
+        print(f"{cat}: {data[cat].shape}")
 
-    # X = np.concatenate([data[cat] for cat in categories], axis=0)
-    # y = np.concatenate([np.full(data[cat].shape[0], i) for i, cat in enumerate(categories)])
+    X = np.concatenate([data[cat] for cat in categories], axis=0)
+    y = np.concatenate([np.full(data[cat].shape[0], i) for i, cat in enumerate(categories)])
 
-    # X_train, X_test, y_train, y_test = train_test_split(
-    #     X, y, test_size=args.val_split, random_state=42, stratify=y
-    # )
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=args.val_split, random_state=42, stratify=y
+    )
 
-    # X_train = X_train.astype("float32") / 255
-    # X_test = X_test.astype("float32") / 255
-    # y_train = to_categorical(y_train)
-    # y_test = to_categorical(y_test)
+    X_train = X_train.astype("float32") / 255
+    X_test = X_test.astype("float32") / 255
+    y_train = to_categorical(y_train)
+    y_test = to_categorical(y_test)
 
     gpus = tf.config.list_physical_devices("GPU")
     print("GPUs:", gpus)
     for gpu in gpus:
         tf.config.experimental.set_memory_growth(gpu, True)
 
-    # MODELS_DIR.mkdir(exist_ok=True)
-    # model_path = MODELS_DIR / "vgg_like_model.keras"
-    # history_path = MODELS_DIR / "vgg_like_model_history.json"
+    MODELS_DIR.mkdir(exist_ok=True)
+    model_path = MODELS_DIR / "vgg_like_model.keras"
+    history_path = MODELS_DIR / "vgg_like_model_history.json"
 
-    # model = build_vgg_like_model()
-    # model.compile(optimizer=args.optimizer, loss="categorical_crossentropy", metrics=["accuracy"])
-    # history = model.fit(
-    #     X_train, y_train,
-    #     epochs=args.epochs,
-    #     batch_size=args.batch_size,
-    #     validation_data=(X_test, y_test),
-    # )
+    model = build_vgg_like_model()
+    model.compile(optimizer=args.optimizer, loss="categorical_crossentropy", metrics=["accuracy"])
+    history = model.fit(
+        X_train, y_train,
+        epochs=args.epochs,
+        batch_size=args.batch_size,
+        validation_data=(X_test, y_test),
+    )
 
-    # model.save(model_path)
-    # with open(history_path, "w") as f:
-    #     json.dump(history.history, f)
+    model.save(model_path)
+    with open(history_path, "w") as f:
+        json.dump(history.history, f)
 
-    # _, acc = model.evaluate(X_test, y_test, verbose=0)
-    # print(f"Test accuracy: {acc:.4f}")
-    # print(f"Model saved to {model_path}")
+    _, acc = model.evaluate(X_test, y_test, verbose=0)
+    print(f"Test accuracy: {acc:.4f}")
+    print(f"Model saved to {model_path}")
 
 
 if __name__ == "__main__":
