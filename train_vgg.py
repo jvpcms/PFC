@@ -6,6 +6,8 @@ import numpy as np
 from pathlib import Path
 from PIL import Image
 from sklearn.model_selection import train_test_split
+import wandb
+from wandb.integration.keras import WandbMetricsLogger
 
 os.environ["TF_CUDNN_USE_AUTOTUNE"] = "0"
 
@@ -87,6 +89,16 @@ def main(args):
     model_path = MODELS_DIR / "vgg_like_model.keras"
     history_path = MODELS_DIR / "vgg_like_model_history.json"
 
+    wandb.init(
+        project="eurosat-vgg",
+        config={
+            "epochs": args.epochs,
+            "batch_size": args.batch_size,
+            "optimizer": args.optimizer,
+            "val_split": args.val_split,
+        }
+    )
+
     model = build_vgg_like_model()
     model.compile(optimizer=args.optimizer, loss="categorical_crossentropy", metrics=["accuracy"])
     history = model.fit(
@@ -94,6 +106,7 @@ def main(args):
         epochs=args.epochs,
         batch_size=args.batch_size,
         validation_data=(X_test, y_test),
+        callbacks=[WandbMetricsLogger()],
     )
 
     model.save(model_path)
@@ -103,6 +116,7 @@ def main(args):
     _, acc = model.evaluate(X_test, y_test, verbose=0)
     print(f"Test accuracy: {acc:.4f}")
     print(f"Model saved to {model_path}")
+    wandb.finish()
 
 
 if __name__ == "__main__":
