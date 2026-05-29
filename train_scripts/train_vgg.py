@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 import zipfile
+from datetime import datetime
 import numpy as np
 from pathlib import Path
 from PIL import Image
@@ -17,7 +18,7 @@ from keras.models import Sequential, load_model
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 
 
-MODELS_DIR = Path("models")
+MODELS_DIR = Path("models/vgg_classfier")
 DATA_DIR = Path("data/EuroSAT_RGB")
 ZIP_PATH = Path("data_zip/EuroSAT_RGB.zip")
 
@@ -86,11 +87,14 @@ def main(args):
         tf.config.experimental.set_memory_growth(gpu, True)
 
     MODELS_DIR.mkdir(exist_ok=True)
-    model_path = MODELS_DIR / "vgg_like_model.keras"
-    history_path = MODELS_DIR / "vgg_like_model_history.json"
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    run_name = f"vgg_{args.optimizer}_e{args.epochs}_{timestamp}"
+    model_path = MODELS_DIR / f"vgg_like_model_{timestamp}.keras"
+    history_path = MODELS_DIR / f"vgg_like_model_history_{timestamp}.json"
 
     wandb.init(
         project="eurosat-vgg",
+        name=run_name,
         config={
             "epochs": args.epochs,
             "batch_size": args.batch_size,
