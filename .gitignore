@@ -1,2 +1,3 @@
 .venv
 data/EuroSAT_RGB
+.env

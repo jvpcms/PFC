@@ -6,3 +6,4 @@ keras
 tensorflow[and-cuda]
 opencv-python
 huggingface_hub
+wandb
