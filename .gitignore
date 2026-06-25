@@ -1,3 +1,5 @@
 .venv
 data/EuroSAT_RGB
 .env
+wandb
+local_models
