@@ -82,13 +82,12 @@ def main(args):
         print(f'Dataset already present at {DATA_DIR} — skipping download.')
     else:
         DATA_DIR.mkdir(parents=True, exist_ok=True)
-        username = os.environ.get('KAGGLE_USERNAME')
-        api_key  = os.environ.get('KAGGLE_API_TOKEN')
-        if not username or not api_key:
+        username  = os.environ.get('KAGGLE_USERNAME')
+        api_token = os.environ.get('KAGGLE_API_TOKEN')
+        if not username or not api_token:
             raise RuntimeError(
                 'KAGGLE_USERNAME and KAGGLE_API_TOKEN env vars must both be set.'
             )
-        os.environ['KAGGLE_KEY'] = api_key
 
         print('Authenticating with Kaggle...')
         kaggle.api.authenticate()
