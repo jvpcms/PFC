@@ -9,6 +9,8 @@ Usage:
 import argparse
 import os
 import numpy as np
+from dotenv import load_dotenv
+load_dotenv()
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 from PIL import Image

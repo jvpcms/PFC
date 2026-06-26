@@ -8,3 +8,4 @@ opencv-python
 huggingface_hub
 wandb
 kaggle
+python-dotenv
