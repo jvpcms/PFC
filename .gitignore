@@ -3,3 +3,5 @@ data/EuroSAT_RGB
 .env
 wandb
 models
+data
+data_zip
