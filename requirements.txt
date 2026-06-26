@@ -7,4 +7,3 @@ tensorflow[and-cuda]
 opencv-python
 huggingface_hub
 wandb
-segmentation_models
