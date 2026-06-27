@@ -27,6 +27,7 @@ from wandb.integration.keras import WandbMetricsLogger, WandbModelCheckpoint
 TILES_DIR   = Path('data/deepglobe/tiles')
 MODELS_DIR  = Path('models/deepglobe_unet')
 N_CLASSES   = 7
+CLASS_NAMES = ['Urban', 'Agriculture', 'Rangeland', 'Forest', 'Water', 'Barren', 'Unknown']
 INPUT_SHAPE = (256, 256, 3)
 TILE_SIZE   = 256
 N_TILES     = 9
@@ -199,6 +200,15 @@ def main(args):
     print(f'Train batches: {len(train_ds)} | Val batches: {len(val_ds)}')
 
     model = build_unet()
+    per_class_iou = [
+        tf.keras.metrics.IoU(
+            num_classes=N_CLASSES,
+            target_class_ids=[i],
+            name=f'iou_{CLASS_NAMES[i].lower()}',
+            sparse_y_pred=False,
+        )
+        for i in range(N_CLASSES)
+    ]
     model.compile(
         optimizer = tf.keras.optimizers.Adam(learning_rate=args.lr),
         loss      = bce_dice_loss,
@@ -206,6 +216,7 @@ def main(args):
             tf.keras.metrics.SparseCategoricalAccuracy(name='accuracy'),
             tf.keras.metrics.MeanIoU(num_classes=N_CLASSES, name='miou',
                                      sparse_y_pred=False),
+            *per_class_iou,
         ],
     )
     total = sum(tf.size(w).numpy() for w in model.weights)
@@ -217,19 +228,22 @@ def main(args):
         WandbMetricsLogger(log_freq='epoch'),
         WandbModelCheckpoint(
             str(MODELS_DIR / 'best.keras'),
-            monitor='val_loss',
+            monitor='val_miou',
+            mode='max',
             save_best_only=True,
             verbose=1,
         ),
         tf.keras.callbacks.ReduceLROnPlateau(
-            monitor='val_loss',
+            monitor='val_miou',
+            mode='max',
             factor=args.lr_factor,
             patience=args.lr_patience,
             min_lr=1e-7,
             verbose=1,
         ),
         tf.keras.callbacks.EarlyStopping(
-            monitor='val_loss',
+            monitor='val_miou',
+            mode='max',
             patience=args.es_patience,
             restore_best_weights=True,
             verbose=1,
