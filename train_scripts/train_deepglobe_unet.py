@@ -234,8 +234,8 @@ def main(args):
             verbose=1,
         ),
         tf.keras.callbacks.ReduceLROnPlateau(
-            monitor='val_miou',
-            mode='max',
+            monitor='val_loss',
+            mode='min',
             factor=args.lr_factor,
             patience=args.lr_patience,
             min_lr=1e-7,
