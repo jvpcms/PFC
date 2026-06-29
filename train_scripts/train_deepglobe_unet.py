@@ -24,13 +24,13 @@ from wandb.integration.keras import WandbMetricsLogger, WandbModelCheckpoint
 
 
 # ── Constants ─────────────────────────────────────────────────────────────────
-TILES_DIR   = Path('data/deepglobe/tiles')
+TILES_DIR   = Path('data/deepglobe/tiles_2m')
 MODELS_DIR  = Path('models/deepglobe_unet')
 N_CLASSES   = 7
 CLASS_NAMES = ['Urban', 'Agriculture', 'Rangeland', 'Forest', 'Water', 'Barren', 'Unknown']
 INPUT_SHAPE = (256, 256, 3)
 TILE_SIZE   = 256
-N_TILES     = 9
+N_TILES     = 2   # 2×2 corner tiles per 612px image
 SKIP_LAYERS = [
     'block2a_expand_activation',
     'block3a_expand_activation',
@@ -193,7 +193,7 @@ def main(args):
         loss         = 'bce_dice',
         optimizer    = 'adam',
         augmentation = 'hflip+vflip+rot90',
-        tiling       = f'{N_TILES}x{N_TILES} ({TILE_SIZE}px, border discarded)',
+        tiling       = f'corner tiles 4x ({TILE_SIZE}px, 100px cross discarded)',
     )
 
     train_ds, val_ds = make_datasets(args.batch_size, args.val_split, args.seed)
