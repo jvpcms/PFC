@@ -30,7 +30,6 @@ N_CLASSES   = 7
 CLASS_NAMES = ['Urban', 'Agriculture', 'Rangeland', 'Forest', 'Water', 'Barren', 'Unknown']
 INPUT_SHAPE = (256, 256, 3)
 TILE_SIZE   = 256
-N_TILES     = 2   # 2×2 corner tiles per 612px image
 SKIP_LAYERS = [
     'block2a_expand_activation',
     'block3a_expand_activation',
@@ -69,40 +68,28 @@ def bce_dice_loss(y_true, y_pred):
 
 
 # ── Data loader ───────────────────────────────────────────────────────────────
-def make_datasets(batch_size: int, val_split: float, seed: int):
-    tiles_dir = TILES_DIR / 'train'
-    if not tiles_dir.exists():
-        raise FileNotFoundError(
-            f'Tiles not found at {tiles_dir}. '
-            'Run: python train_scripts/prepare_deepglobe.py'
-        )
+def make_datasets(batch_size: int):
+    def load_pairs(split):
+        d = TILES_DIR / split
+        if not d.exists():
+            raise FileNotFoundError(
+                f'Tiles not found at {d}. '
+                'Run: python train_scripts/prepare_deepglobe.py'
+            )
+        pairs = []
+        for s in sorted(d.glob('*_sat.npy')):
+            m = d / s.name.replace('_sat.npy', '_mask.npy')
+            if m.exists():
+                pairs.append((str(s), str(m)))
+        if not pairs:
+            raise RuntimeError(f'No sat+mask tile pairs found in {d}')
+        return pairs
 
-    sat_files = sorted(tiles_dir.glob('*_sat.npy'))
-    pairs = []
-    for s in sat_files:
-        m = tiles_dir / s.name.replace('_sat.npy', '_mask.npy')
-        if m.exists():
-            pairs.append((str(s), str(m)))
+    train_pairs = load_pairs('train')
+    val_pairs   = load_pairs('val')
 
-    if not pairs:
-        raise RuntimeError(f'No sat+mask tile pairs found in {tiles_dir}')
-
-    img_to_pairs = defaultdict(list)
-    for s, m in pairs:
-        img_id = Path(s).stem.rsplit('_', 2)[0]
-        img_to_pairs[img_id].append((s, m))
-
-    img_ids = sorted(img_to_pairs.keys())
-    rng = np.random.default_rng(seed)
-    rng.shuffle(img_ids)
-
-    n_val       = max(1, int(len(img_ids) * val_split))
-    val_ids     = set(img_ids[:n_val])
-    train_pairs = [p for img_id in img_ids[n_val:] for p in img_to_pairs[img_id]]
-    val_pairs   = [p for img_id in val_ids          for p in img_to_pairs[img_id]]
-
-    print(f'Train: {len(img_ids) - n_val} images → {len(train_pairs)} tiles')
-    print(f'Val  : {n_val} images → {len(val_pairs)} tiles')
+    print(f'Train: {len(train_pairs)} tiles')
+    print(f'Val  : {len(val_pairs)} tiles')
 
     def _load(sat_path, mask_path):
         img   = np.load(sat_path.numpy().decode()).astype(np.uint8)
@@ -186,7 +173,6 @@ def main(args):
         lr_patience  = args.lr_patience,
         es_patience  = args.es_patience,
         batch_size   = args.batch_size,
-        val_split    = args.val_split,
         encoder      = 'efficientnetb0',
         input_shape  = INPUT_SHAPE,
         n_classes    = N_CLASSES,
@@ -196,7 +182,7 @@ def main(args):
         tiling       = f'corner tiles 4x ({TILE_SIZE}px, 100px cross discarded)',
     )
 
-    train_ds, val_ds = make_datasets(args.batch_size, args.val_split, args.seed)
+    train_ds, val_ds = make_datasets(args.batch_size)
     print(f'Train batches: {len(train_ds)} | Val batches: {len(val_ds)}')
 
     model = build_unet()
@@ -234,8 +220,8 @@ def main(args):
             verbose=1,
         ),
         tf.keras.callbacks.ReduceLROnPlateau(
-            monitor='val_loss',
-            mode='min',
+            monitor='val_miou',
+            mode='max',
             factor=args.lr_factor,
             patience=args.lr_patience,
             min_lr=1e-7,
@@ -273,6 +259,5 @@ if __name__ == '__main__':
                         help='Epochs without improvement before LR reduction')
     parser.add_argument('--es-patience', type=int,   default=10,
                         help='Epochs without improvement before early stopping')
-    parser.add_argument('--val-split',   type=float, default=0.15)
     parser.add_argument('--seed',        type=int,   default=42)
     main(parser.parse_args())
