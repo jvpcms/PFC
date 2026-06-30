@@ -111,6 +111,13 @@ def make_datasets(batch_size: int):
         combined = tf.image.rot90(combined, k)
         img      = tf.cast(combined[:, :, :3], tf.uint8)
         label    = tf.cast(combined[:, :, 3], tf.int32)
+        # colour jitter applied to image only (label unchanged)
+        img_f = tf.cast(img, tf.float32) / 255.0
+        img_f = tf.image.random_brightness(img_f, max_delta=0.2)
+        img_f = tf.image.random_contrast(img_f, lower=0.8, upper=1.2)
+        img_f = tf.image.random_saturation(img_f, lower=0.8, upper=1.2)
+        img_f = tf.image.random_hue(img_f, max_delta=0.05)
+        img   = tf.cast(tf.clip_by_value(img_f * 255.0, 0, 255), tf.uint8)
         return img, label
 
     def build_ds(pairs, augment):
@@ -178,7 +185,7 @@ def main(args):
         n_classes    = N_CLASSES,
         loss         = 'bce_dice',
         optimizer    = 'adam',
-        augmentation = 'hflip+vflip+rot90',
+        augmentation = 'hflip+vflip+rot90+brightness+contrast+saturation+hue',
         tiling       = f'corner tiles 4x ({TILE_SIZE}px, 100px cross discarded)',
     )
 
