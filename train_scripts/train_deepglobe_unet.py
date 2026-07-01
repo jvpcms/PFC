@@ -186,7 +186,8 @@ def main(args):
         n_classes    = N_CLASSES,
         loss         = 'bce_dice',
         optimizer    = 'adam',
-        augmentation = 'hflip+vflip+rot90+brightness+contrast+saturation+hue',
+        augmentation   = 'hflip+vflip+rot90+brightness+contrast+saturation+hue',
+        decoder_dropout = 0.3,
         tiling       = f'corner tiles 4x ({TILE_SIZE}px, 100px cross discarded)',
     )
 
