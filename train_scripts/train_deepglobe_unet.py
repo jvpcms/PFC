@@ -143,10 +143,11 @@ def conv_block(x, filters):
     x = tf.keras.layers.ReLU()(x)
     return x
 
-def decoder_block(x, skip, filters):
+def decoder_block(x, skip, filters, dropout=0.3):
     x = tf.keras.layers.UpSampling2D(size=(2, 2), interpolation='bilinear')(x)
     x = tf.keras.layers.Concatenate()([x, skip])
-    return conv_block(x, filters)
+    x = conv_block(x, filters)
+    return tf.keras.layers.Dropout(dropout)(x)
 
 def build_unet(encoder: str = 'efficientnetb0'):
     inputs   = tf.keras.Input(shape=INPUT_SHAPE)
