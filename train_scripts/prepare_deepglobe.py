@@ -7,7 +7,7 @@ Split is deterministic: sorted image IDs + fixed seed, stable across runs.
 
 Usage:
     python train_scripts/prepare_deepglobe.py                   # 0.5m, 9×9 grid → tiles/
-    python train_scripts/prepare_deepglobe.py --downsample      # 2m, 4 corner tiles → tiles_2m/
+    python train_scripts/prepare_deepglobe.py --downsample      # 2m, 9-tile 3×3 overlapping grid → tiles_2m/
     python train_scripts/prepare_deepglobe.py --tile-size 256 --n-tiles 9
 """
 
@@ -88,8 +88,9 @@ def _tile_one_2m(args):
         .astype(np.uint8)
     )
 
-    # 4 corner tiles: offsets = [0, new_h - tile_size]
-    offsets = [0, new_h - tile_size]
+    # 3×3 overlapping grid: stride = (new_h - tile_size) // 2
+    stride = (new_h - tile_size) // 2
+    offsets = [0, stride, new_h - tile_size]
     out_dir = Path(out_dir)
     for r, rs in enumerate(offsets):
         for c, cs in enumerate(offsets):
@@ -118,7 +119,7 @@ def tile_all(tile_size: int, n_tiles: int, n_workers: int, downsample: bool):
 
     if downsample:
         tiles_dir       = DATA_DIR / 'tiles_2m'
-        tiles_per_image = 4           # 2×2 corner tiles
+        tiles_per_image = 9           # 3×3 overlapping grid
         worker_fn       = _tile_one_2m
     else:
         tiles_dir       = DATA_DIR / 'tiles'
@@ -187,7 +188,7 @@ if __name__ == '__main__':
     parser.add_argument('--n-tiles',    type=int,  default=9,
                         help='Tiles per side for 0.5m grid (default: 9, ignored with --downsample)')
     parser.add_argument('--downsample', action='store_true',
-                        help='Downsample 0.5m→2m (4× area avg image + majority-vote mask), output 4 corner tiles → tiles_2m/')
+                        help='Downsample 0.5m→2m (4× area avg image + majority-vote mask), output 9-tile 3×3 overlapping grid → tiles_2m/')
     parser.add_argument('--workers',    type=int,  default=None,
                         help='Parallel workers (default: cpu_count)')
     main(parser.parse_args())

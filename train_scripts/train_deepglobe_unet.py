@@ -188,7 +188,7 @@ def main(args):
         optimizer    = 'adam',
         augmentation   = 'hflip+vflip+rot90+brightness+contrast+saturation+hue',
         decoder_dropout = 0.3,
-        tiling       = f'corner tiles 4x ({TILE_SIZE}px, 100px cross discarded)',
+        tiling       = f'3x3 overlapping grid ({TILE_SIZE}px, stride={(612-TILE_SIZE)//2}px)',
     )
 
     train_ds, val_ds = make_datasets(args.batch_size)
