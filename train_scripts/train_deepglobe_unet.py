@@ -26,8 +26,11 @@ from wandb.integration.keras import WandbMetricsLogger, WandbModelCheckpoint
 # ── Constants ─────────────────────────────────────────────────────────────────
 TILES_DIR   = Path('data/deepglobe/tiles_2m')
 MODELS_DIR  = Path('models/deepglobe_unet')
-N_CLASSES   = 7
-CLASS_NAMES = ['Urban', 'Agriculture', 'Rangeland', 'Forest', 'Water', 'Barren', 'Unknown']
+N_CLASSES   = 6
+CLASS_NAMES = ['Urban', 'AgricultureRangeland', 'Forest', 'Water', 'Barren', 'Unknown']
+# Tiles on disk use the original 7-class DeepGlobe labels; Agriculture (1) and
+# Rangeland (2) are merged into a single class at load time.
+LABEL_REMAP = np.array([0, 1, 1, 2, 3, 4, 5], dtype=np.int32)
 INPUT_SHAPE = (256, 256, 3)
 TILE_SIZE   = 256
 SKIP_LAYERS = [
@@ -93,7 +96,7 @@ def make_datasets(batch_size: int):
 
     def _load(sat_path, mask_path):
         img   = np.load(sat_path.numpy().decode()).astype(np.uint8)
-        label = np.load(mask_path.numpy().decode()).astype(np.int32)
+        label = LABEL_REMAP[np.load(mask_path.numpy().decode())]
         return img, label
 
     def tf_load(sat_path, mask_path):
@@ -191,6 +194,7 @@ def main(args):
         tiling       = f'3x3 overlapping grid ({TILE_SIZE}px, stride={(612-TILE_SIZE)//2}px)',
         freeze_epochs   = args.freeze_epochs,
         unfreeze_lr_div = args.unfreeze_lr_div,
+        class_merge     = 'Agriculture+Rangeland merged at load time (7 -> 6 classes)',
     )
 
     train_ds, val_ds = make_datasets(args.batch_size)
