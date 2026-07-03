@@ -164,7 +164,7 @@ def build_unet(encoder: str = 'efficientnetb0'):
     x = tf.keras.layers.UpSampling2D(size=(2, 2), interpolation='bilinear')(x)
     x = conv_block(x, 16)
     outputs = tf.keras.layers.Conv2D(N_CLASSES, 1, activation='softmax')(x)
-    return tf.keras.Model(inputs, outputs)
+    return tf.keras.Model(inputs, outputs), backbone
 
 
 # ── Train ─────────────────────────────────────────────────────────────────────
@@ -189,31 +189,35 @@ def main(args):
         augmentation   = 'hflip+vflip+rot90+brightness+contrast+saturation+hue',
         decoder_dropout = 0.3,
         tiling       = f'3x3 overlapping grid ({TILE_SIZE}px, stride={(612-TILE_SIZE)//2}px)',
+        freeze_epochs = args.freeze_epochs,
     )
 
     train_ds, val_ds = make_datasets(args.batch_size)
     print(f'Train batches: {len(train_ds)} | Val batches: {len(val_ds)}')
 
-    model = build_unet()
-    per_class_iou = [
-        tf.keras.metrics.IoU(
-            num_classes=N_CLASSES,
-            target_class_ids=[i],
-            name=f'iou_{CLASS_NAMES[i].lower()}',
-            sparse_y_pred=False,
+    model, backbone = build_unet()
+    def compile_model():
+        per_class_iou = [
+            tf.keras.metrics.IoU(
+                num_classes=N_CLASSES,
+                target_class_ids=[i],
+                name=f'iou_{CLASS_NAMES[i].lower()}',
+                sparse_y_pred=False,
+            )
+            for i in range(N_CLASSES)
+        ]
+        model.compile(
+            optimizer = tf.keras.optimizers.Adam(learning_rate=args.lr),
+            loss      = bce_dice_loss,
+            metrics   = [
+                tf.keras.metrics.SparseCategoricalAccuracy(name='accuracy'),
+                tf.keras.metrics.MeanIoU(num_classes=N_CLASSES, name='miou',
+                                         sparse_y_pred=False),
+                *per_class_iou,
+            ],
         )
-        for i in range(N_CLASSES)
-    ]
-    model.compile(
-        optimizer = tf.keras.optimizers.Adam(learning_rate=args.lr),
-        loss      = bce_dice_loss,
-        metrics   = [
-            tf.keras.metrics.SparseCategoricalAccuracy(name='accuracy'),
-            tf.keras.metrics.MeanIoU(num_classes=N_CLASSES, name='miou',
-                                     sparse_y_pred=False),
-            *per_class_iou,
-        ],
-    )
+
+    compile_model()
     total = sum(tf.size(w).numpy() for w in model.weights)
     print(f'Total params: {total:,}')
 
@@ -245,10 +249,29 @@ def main(args):
         ),
     ]
 
+    if args.freeze_epochs > 0:
+        # Phase 1: frozen encoder — decoder-only warmup (BN layers run in
+        # inference mode while backbone.trainable is False)
+        backbone.trainable = False
+        compile_model()
+        print(f'Phase 1: encoder frozen for {args.freeze_epochs} epochs')
+        model.fit(
+            train_ds,
+            validation_data=val_ds,
+            epochs=args.freeze_epochs,
+            callbacks=[WandbMetricsLogger(log_freq='epoch')],
+        )
+
+        # Phase 2: full fine-tune — recompile required after trainable change
+        backbone.trainable = True
+        compile_model()
+        print('Phase 2: encoder unfrozen — full training')
+
     model.fit(
         train_ds,
         validation_data=val_ds,
         epochs=args.epochs,
+        initial_epoch=args.freeze_epochs,
         callbacks=callbacks,
     )
 
@@ -268,5 +291,7 @@ if __name__ == '__main__':
                         help='Epochs without improvement before LR reduction')
     parser.add_argument('--es-patience', type=int,   default=10,
                         help='Epochs without improvement before early stopping')
+    parser.add_argument('--freeze-epochs', type=int, default=10,
+                        help='Epochs with frozen encoder before full fine-tune (0 = disabled)')
     parser.add_argument('--seed',        type=int,   default=42)
     main(parser.parse_args())
