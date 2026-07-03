@@ -189,14 +189,15 @@ def main(args):
         augmentation   = 'hflip+vflip+rot90+brightness+contrast+saturation+hue',
         decoder_dropout = 0.3,
         tiling       = f'3x3 overlapping grid ({TILE_SIZE}px, stride={(612-TILE_SIZE)//2}px)',
-        freeze_epochs = args.freeze_epochs,
+        freeze_epochs   = args.freeze_epochs,
+        unfreeze_lr_div = args.unfreeze_lr_div,
     )
 
     train_ds, val_ds = make_datasets(args.batch_size)
     print(f'Train batches: {len(train_ds)} | Val batches: {len(val_ds)}')
 
     model, backbone = build_unet()
-    def compile_model():
+    def compile_model(lr=args.lr):
         per_class_iou = [
             tf.keras.metrics.IoU(
                 num_classes=N_CLASSES,
@@ -207,7 +208,7 @@ def main(args):
             for i in range(N_CLASSES)
         ]
         model.compile(
-            optimizer = tf.keras.optimizers.Adam(learning_rate=args.lr),
+            optimizer = tf.keras.optimizers.Adam(learning_rate=lr),
             loss      = bce_dice_loss,
             metrics   = [
                 tf.keras.metrics.SparseCategoricalAccuracy(name='accuracy'),
@@ -262,10 +263,11 @@ def main(args):
             callbacks=[WandbMetricsLogger(log_freq='epoch')],
         )
 
-        # Phase 2: full fine-tune — recompile required after trainable change
+        # Phase 2: full fine-tune — recompile required after trainable change;
+        # reduced LR protects pretrained encoder features right after unfreeze
         backbone.trainable = True
-        compile_model()
-        print('Phase 2: encoder unfrozen — full training')
+        compile_model(lr=args.lr / args.unfreeze_lr_div)
+        print(f'Phase 2: encoder unfrozen — full training at lr={args.lr / args.unfreeze_lr_div:g}')
 
     model.fit(
         train_ds,
@@ -291,7 +293,9 @@ if __name__ == '__main__':
                         help='Epochs without improvement before LR reduction')
     parser.add_argument('--es-patience', type=int,   default=10,
                         help='Epochs without improvement before early stopping')
-    parser.add_argument('--freeze-epochs', type=int, default=10,
+    parser.add_argument('--freeze-epochs', type=int, default=5,
                         help='Epochs with frozen encoder before full fine-tune (0 = disabled)')
+    parser.add_argument('--unfreeze-lr-div', type=float, default=4.0,
+                        help='LR divisor applied when encoder unfreezes (phase 2 lr = lr / div)')
     parser.add_argument('--seed',        type=int,   default=42)
     main(parser.parse_args())
