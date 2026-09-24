@@ -1,0 +1,11 @@
+=== 2026-09-22T22:44:33-03:00 waiting for training driver pid 836300
+=== 2026-09-22T23:28:33-03:00 training driver gone, starting evals
+=== 2026-09-22T23:28:33-03:00 EVAL finetune-lr3e-05
+=== 2026-09-22T23:29:17-03:00 EVAL finetune-lr3e-05 rc=0
+=== 2026-09-22T23:29:17-03:00 EVAL scratch-lr0.0001
+=== 2026-09-22T23:30:00-03:00 EVAL scratch-lr0.0001 rc=0
+=== 2026-09-22T23:30:00-03:00 EVAL finetune-lr0.0001
+=== 2026-09-22T23:30:43-03:00 EVAL finetune-lr0.0001 rc=0
+=== 2026-09-22T23:30:43-03:00 EVAL scratch-lr0.0003
+=== 2026-09-22T23:31:26-03:00 EVAL scratch-lr0.0003 rc=0
+=== 2026-09-22T23:31:26-03:00 EVALS DONE

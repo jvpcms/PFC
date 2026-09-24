@@ -11,3 +11,4 @@ kaggle
 python-dotenv
 pystac_client
 rasterio
+geopandas

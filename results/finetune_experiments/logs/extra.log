@@ -1,0 +1,12 @@
+=== 2026-09-22T23:30:48-03:00 waiting for eval driver pid 855890
+=== 2026-09-22T23:31:48-03:00 eval driver gone, starting extra arms
+=== 2026-09-22T23:31:48-03:00 START finetune-1e-5
+=== 2026-09-23T00:04:17-03:00 END finetune-1e-5 rc=0
+=== 2026-09-23T00:04:17-03:00 START finetune-3e-4
+=== 2026-09-23T00:23:24-03:00 END finetune-3e-4 rc=0
+=== 2026-09-23T00:23:24-03:00 START scratch-3e-5
+=== 2026-09-23T00:44:42-03:00 END scratch-3e-5 rc=0
+=== 2026-09-23T00:44:42-03:00 SKIP finetune-lr1e-05 (already scored)
+=== 2026-09-23T00:44:42-03:00 SKIP finetune-lr0.0003 (already scored)
+=== 2026-09-23T00:44:42-03:00 SKIP scratch-lr3e-05 (already scored)
+=== 2026-09-23T00:44:42-03:00 EXTRA DONE

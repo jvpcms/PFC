@@ -1,0 +1,117 @@
+== finetune-lr3e-05
+train 80 tiles -> 1280 sub-tiles | test 20 tiles -> 320 sub-tiles
+Epoch 1/80
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1790126695.245731  836521 cuda_timer.cc:87] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
+E0000 00:00:1790126731.227780  836521 cuda_timer.cc:87] Delay kernel timed out: measured time has sub-optimal accuracy. There may be a missing warmup execution, please investigate in Nsight Systems.
+160/160 - 195s - 1s/step - accuracy: 0.7349 - iou_agriculture_rangeland: 0.7242 - iou_barren: 0.1341 - iou_forest: 0.4869 - iou_unknown: 0.0031 - iou_urban: 0.3037 - iou_water: 0.5269 - loss: 1.8212 - miou: 0.3632 - val_accuracy: 0.8846 - val_iou_agriculture_rangeland: 0.8251 - val_iou_barren: 0.1490 - val_iou_forest: 0.7696 - val_iou_unknown: 0.0839 - val_iou_urban: 0.6980 - val_iou_water: 0.9248 - val_loss: 1.2784 - val_miou: 0.5751 - learning_rate: 3.0000e-05
+Epoch 2/80
+160/160 - 25s - 158ms/step - accuracy: 0.8140 - iou_agriculture_rangeland: 0.7671 - iou_barren: 0.1820 - iou_forest: 0.6406 - iou_unknown: 2.1947e-04 - iou_urban: 0.4807 - iou_water: 0.6847 - loss: 1.4228 - miou: 0.4592 - val_accuracy: 0.8964 - val_iou_agriculture_rangeland: 0.8406 - val_iou_barren: 0.2005 - val_iou_forest: 0.7992 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.7952 - val_iou_water: 0.9371 - val_loss: 1.2398 - val_miou: 0.5954 - learning_rate: 3.0000e-05
+Epoch 3/80
+160/160 - 25s - 157ms/step - accuracy: 0.8311 - iou_agriculture_rangeland: 0.7812 - iou_barren: 0.2006 - iou_forest: 0.6594 - iou_unknown: 0.0000e+00 - iou_urban: 0.5569 - iou_water: 0.7258 - loss: 1.3443 - miou: 0.4873 - val_accuracy: 0.9022 - val_iou_agriculture_rangeland: 0.8498 - val_iou_barren: 0.2850 - val_iou_forest: 0.8100 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8220 - val_iou_water: 0.9491 - val_loss: 1.1940 - val_miou: 0.6193 - learning_rate: 3.0000e-05
+Epoch 4/80
+160/160 - 25s - 158ms/step - accuracy: 0.8507 - iou_agriculture_rangeland: 0.8001 - iou_barren: 0.2295 - iou_forest: 0.7095 - iou_unknown: 0.0000e+00 - iou_urban: 0.6248 - iou_water: 0.7581 - loss: 1.2748 - miou: 0.5203 - val_accuracy: 0.9059 - val_iou_agriculture_rangeland: 0.8524 - val_iou_barren: 0.2823 - val_iou_forest: 0.8223 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8344 - val_iou_water: 0.9529 - val_loss: 1.2152 - val_miou: 0.6240 - learning_rate: 3.0000e-05
+Epoch 5/80
+160/160 - 25s - 158ms/step - accuracy: 0.8612 - iou_agriculture_rangeland: 0.8124 - iou_barren: 0.2615 - iou_forest: 0.7174 - iou_unknown: 0.0000e+00 - iou_urban: 0.6781 - iou_water: 0.7780 - loss: 1.2312 - miou: 0.5412 - val_accuracy: 0.9079 - val_iou_agriculture_rangeland: 0.8582 - val_iou_barren: 0.2932 - val_iou_forest: 0.8288 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8666 - val_iou_water: 0.9495 - val_loss: 1.1682 - val_miou: 0.6327 - learning_rate: 3.0000e-05
+Epoch 6/80
+160/160 - 25s - 158ms/step - accuracy: 0.8711 - iou_agriculture_rangeland: 0.8208 - iou_barren: 0.2876 - iou_forest: 0.7283 - iou_unknown: 0.0000e+00 - iou_urban: 0.7194 - iou_water: 0.8095 - loss: 1.2062 - miou: 0.5609 - val_accuracy: 0.9108 - val_iou_agriculture_rangeland: 0.8629 - val_iou_barren: 0.3022 - val_iou_forest: 0.8356 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8727 - val_iou_water: 0.9478 - val_loss: 1.1601 - val_miou: 0.6369 - learning_rate: 3.0000e-05
+Epoch 7/80
+160/160 - 25s - 158ms/step - accuracy: 0.8790 - iou_agriculture_rangeland: 0.8331 - iou_barren: 0.2935 - iou_forest: 0.7383 - iou_unknown: 0.0000e+00 - iou_urban: 0.7315 - iou_water: 0.8272 - loss: 1.1831 - miou: 0.5706 - val_accuracy: 0.9115 - val_iou_agriculture_rangeland: 0.8615 - val_iou_barren: 0.3096 - val_iou_forest: 0.8362 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8806 - val_iou_water: 0.9541 - val_loss: 1.1632 - val_miou: 0.6403 - learning_rate: 3.0000e-05
+Epoch 8/80
+160/160 - 25s - 158ms/step - accuracy: 0.8744 - iou_agriculture_rangeland: 0.8282 - iou_barren: 0.3126 - iou_forest: 0.7307 - iou_unknown: 0.0000e+00 - iou_urban: 0.7111 - iou_water: 0.8122 - loss: 1.1927 - miou: 0.5658 - val_accuracy: 0.9138 - val_iou_agriculture_rangeland: 0.8638 - val_iou_barren: 0.3483 - val_iou_forest: 0.8354 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8866 - val_iou_water: 0.9557 - val_loss: 1.1812 - val_miou: 0.6483 - learning_rate: 3.0000e-05
+Epoch 9/80
+160/160 - 24s - 152ms/step - accuracy: 0.8906 - iou_agriculture_rangeland: 0.8435 - iou_barren: 0.3261 - iou_forest: 0.7672 - iou_unknown: 0.0000e+00 - iou_urban: 0.7745 - iou_water: 0.8537 - loss: 1.1454 - miou: 0.5942 - val_accuracy: 0.9120 - val_iou_agriculture_rangeland: 0.8641 - val_iou_barren: 0.3181 - val_iou_forest: 0.8418 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8788 - val_iou_water: 0.9542 - val_loss: 1.1622 - val_miou: 0.6428 - learning_rate: 3.0000e-05
+Epoch 10/80
+160/160 - 25s - 157ms/step - accuracy: 0.8948 - iou_agriculture_rangeland: 0.8515 - iou_barren: 0.3529 - iou_forest: 0.7559 - iou_unknown: 0.0000e+00 - iou_urban: 0.7768 - iou_water: 0.8733 - loss: 1.1313 - miou: 0.6017 - val_accuracy: 0.9156 - val_iou_agriculture_rangeland: 0.8644 - val_iou_barren: 0.3687 - val_iou_forest: 0.8442 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8851 - val_iou_water: 0.9576 - val_loss: 1.1784 - val_miou: 0.6533 - learning_rate: 3.0000e-05
+Epoch 11/80
+160/160 - 24s - 152ms/step - accuracy: 0.8997 - iou_agriculture_rangeland: 0.8591 - iou_barren: 0.3538 - iou_forest: 0.7613 - iou_unknown: 0.0000e+00 - iou_urban: 0.7930 - iou_water: 0.8797 - loss: 1.1155 - miou: 0.6078 - val_accuracy: 0.9154 - val_iou_agriculture_rangeland: 0.8657 - val_iou_barren: 0.3405 - val_iou_forest: 0.8456 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8817 - val_iou_water: 0.9558 - val_loss: 1.1640 - val_miou: 0.6482 - learning_rate: 3.0000e-05
+Epoch 12/80
+160/160 - 25s - 158ms/step - accuracy: 0.9012 - iou_agriculture_rangeland: 0.8594 - iou_barren: 0.3684 - iou_forest: 0.7692 - iou_unknown: 0.0000e+00 - iou_urban: 0.7962 - iou_water: 0.8826 - loss: 1.1047 - miou: 0.6126 - val_accuracy: 0.9161 - val_iou_agriculture_rangeland: 0.8676 - val_iou_barren: 0.3539 - val_iou_forest: 0.8516 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8921 - val_iou_water: 0.9560 - val_loss: 1.1521 - val_miou: 0.6535 - learning_rate: 3.0000e-05
+Epoch 13/80
+160/160 - 24s - 152ms/step - accuracy: 0.9047 - iou_agriculture_rangeland: 0.8635 - iou_barren: 0.3821 - iou_forest: 0.7745 - iou_unknown: 0.0000e+00 - iou_urban: 0.8181 - iou_water: 0.8871 - loss: 1.1010 - miou: 0.6209 - val_accuracy: 0.9137 - val_iou_agriculture_rangeland: 0.8644 - val_iou_barren: 0.3576 - val_iou_forest: 0.8444 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8818 - val_iou_water: 0.9512 - val_loss: 1.1490 - val_miou: 0.6499 - learning_rate: 3.0000e-05
+Epoch 14/80
+160/160 - 25s - 159ms/step - accuracy: 0.9070 - iou_agriculture_rangeland: 0.8648 - iou_barren: 0.3824 - iou_forest: 0.7811 - iou_unknown: 0.0000e+00 - iou_urban: 0.8131 - iou_water: 0.9005 - loss: 1.0897 - miou: 0.6236 - val_accuracy: 0.9146 - val_iou_agriculture_rangeland: 0.8639 - val_iou_barren: 0.3665 - val_iou_forest: 0.8532 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8859 - val_iou_water: 0.9530 - val_loss: 1.1500 - val_miou: 0.6538 - learning_rate: 3.0000e-05
+Epoch 15/80
+160/160 - 24s - 153ms/step - accuracy: 0.9074 - iou_agriculture_rangeland: 0.8679 - iou_barren: 0.4159 - iou_forest: 0.7701 - iou_unknown: 0.0000e+00 - iou_urban: 0.8132 - iou_water: 0.8947 - loss: 1.0851 - miou: 0.6270 - val_accuracy: 0.9130 - val_iou_agriculture_rangeland: 0.8629 - val_iou_barren: 0.3287 - val_iou_forest: 0.8492 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8884 - val_iou_water: 0.9522 - val_loss: 1.1532 - val_miou: 0.6469 - learning_rate: 3.0000e-05
+Epoch 16/80
+160/160 - 24s - 153ms/step - accuracy: 0.9120 - iou_agriculture_rangeland: 0.8731 - iou_barren: 0.4063 - iou_forest: 0.7886 - iou_unknown: 0.0000e+00 - iou_urban: 0.8034 - iou_water: 0.9099 - loss: 1.0656 - miou: 0.6302 - val_accuracy: 0.9124 - val_iou_agriculture_rangeland: 0.8606 - val_iou_barren: 0.3383 - val_iou_forest: 0.8442 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8759 - val_iou_water: 0.9595 - val_loss: 1.1798 - val_miou: 0.6464 - learning_rate: 3.0000e-05
+Epoch 17/80
+160/160 - 24s - 153ms/step - accuracy: 0.9160 - iou_agriculture_rangeland: 0.8803 - iou_barren: 0.4383 - iou_forest: 0.7783 - iou_unknown: 0.0000e+00 - iou_urban: 0.8597 - iou_water: 0.9188 - loss: 1.0443 - miou: 0.6459 - val_accuracy: 0.9148 - val_iou_agriculture_rangeland: 0.8639 - val_iou_barren: 0.3531 - val_iou_forest: 0.8499 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8895 - val_iou_water: 0.9593 - val_loss: 1.1564 - val_miou: 0.6526 - learning_rate: 3.0000e-05
+Epoch 18/80
+160/160 - 24s - 153ms/step - accuracy: 0.9154 - iou_agriculture_rangeland: 0.8743 - iou_barren: 0.4458 - iou_forest: 0.7822 - iou_unknown: 0.0000e+00 - iou_urban: 0.8455 - iou_water: 0.9232 - loss: 1.0531 - miou: 0.6452 - val_accuracy: 0.9138 - val_iou_agriculture_rangeland: 0.8629 - val_iou_barren: 0.3469 - val_iou_forest: 0.8497 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8942 - val_iou_water: 0.9574 - val_loss: 1.1516 - val_miou: 0.6519 - learning_rate: 3.0000e-05
+Epoch 19/80
+160/160 - 24s - 153ms/step - accuracy: 0.9206 - iou_agriculture_rangeland: 0.8823 - iou_barren: 0.4406 - iou_forest: 0.8020 - iou_unknown: 0.0000e+00 - iou_urban: 0.8654 - iou_water: 0.9281 - loss: 1.0331 - miou: 0.6531 - val_accuracy: 0.9140 - val_iou_agriculture_rangeland: 0.8641 - val_iou_barren: 0.3282 - val_iou_forest: 0.8507 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8996 - val_iou_water: 0.9527 - val_loss: 1.1551 - val_miou: 0.6492 - learning_rate: 3.0000e-05
+Epoch 20/80
+160/160 - 25s - 159ms/step - accuracy: 0.9212 - iou_agriculture_rangeland: 0.8831 - iou_barren: 0.4820 - iou_forest: 0.7994 - iou_unknown: 0.0000e+00 - iou_urban: 0.8465 - iou_water: 0.9249 - loss: 1.0283 - miou: 0.6560 - val_accuracy: 0.9150 - val_iou_agriculture_rangeland: 0.8650 - val_iou_barren: 0.3518 - val_iou_forest: 0.8541 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8957 - val_iou_water: 0.9577 - val_loss: 1.1465 - val_miou: 0.6541 - learning_rate: 3.0000e-05
+Epoch 21/80
+160/160 - 24s - 153ms/step - accuracy: 0.9243 - iou_agriculture_rangeland: 0.8873 - iou_barren: 0.4998 - iou_forest: 0.7982 - iou_unknown: 0.0000e+00 - iou_urban: 0.8513 - iou_water: 0.9358 - loss: 1.0207 - miou: 0.6621 - val_accuracy: 0.9160 - val_iou_agriculture_rangeland: 0.8666 - val_iou_barren: 0.3745 - val_iou_forest: 0.8470 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8798 - val_iou_water: 0.9549 - val_loss: 1.1477 - val_miou: 0.6538 - learning_rate: 3.0000e-05
+Epoch 22/80
+160/160 - 25s - 159ms/step - accuracy: 0.9246 - iou_agriculture_rangeland: 0.8898 - iou_barren: 0.4813 - iou_forest: 0.8034 - iou_unknown: 0.0000e+00 - iou_urban: 0.8648 - iou_water: 0.9301 - loss: 1.0176 - miou: 0.6616 - val_accuracy: 0.9172 - val_iou_agriculture_rangeland: 0.8697 - val_iou_barren: 0.3600 - val_iou_forest: 0.8547 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8946 - val_iou_water: 0.9583 - val_loss: 1.1436 - val_miou: 0.6562 - learning_rate: 3.0000e-05
+Epoch 23/80
+160/160 - 24s - 153ms/step - accuracy: 0.9280 - iou_agriculture_rangeland: 0.8961 - iou_barren: 0.5319 - iou_forest: 0.8017 - iou_unknown: 0.0000e+00 - iou_urban: 0.8462 - iou_water: 0.9332 - loss: 1.0016 - miou: 0.6682 - val_accuracy: 0.9127 - val_iou_agriculture_rangeland: 0.8598 - val_iou_barren: 0.3787 - val_iou_forest: 0.8461 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8693 - val_iou_water: 0.9531 - val_loss: 1.1580 - val_miou: 0.6512 - learning_rate: 3.0000e-05
+Epoch 24/80
+160/160 - 24s - 153ms/step - accuracy: 0.9191 - iou_agriculture_rangeland: 0.8831 - iou_barren: 0.4843 - iou_forest: 0.8011 - iou_unknown: 0.0000e+00 - iou_urban: 0.8262 - iou_water: 0.9115 - loss: 1.0350 - miou: 0.6510 - val_accuracy: 0.9141 - val_iou_agriculture_rangeland: 0.8582 - val_iou_barren: 0.3255 - val_iou_forest: 0.8434 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8771 - val_iou_water: 0.9568 - val_loss: 1.2493 - val_miou: 0.6435 - learning_rate: 3.0000e-05
+Epoch 25/80
+160/160 - 25s - 159ms/step - accuracy: 0.9295 - iou_agriculture_rangeland: 0.8936 - iou_barren: 0.5405 - iou_forest: 0.8042 - iou_unknown: 0.0000e+00 - iou_urban: 0.8636 - iou_water: 0.9448 - loss: 0.9907 - miou: 0.6745 - val_accuracy: 0.9182 - val_iou_agriculture_rangeland: 0.8700 - val_iou_barren: 0.3674 - val_iou_forest: 0.8598 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8948 - val_iou_water: 0.9582 - val_loss: 1.1431 - val_miou: 0.6584 - learning_rate: 3.0000e-05
+Epoch 26/80
+160/160 - 24s - 152ms/step - accuracy: 0.9298 - iou_agriculture_rangeland: 0.8945 - iou_barren: 0.5231 - iou_forest: 0.8142 - iou_unknown: 0.0000e+00 - iou_urban: 0.8589 - iou_water: 0.9456 - loss: 0.9895 - miou: 0.6727 - val_accuracy: 0.9118 - val_iou_agriculture_rangeland: 0.8588 - val_iou_barren: 0.3052 - val_iou_forest: 0.8587 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8853 - val_iou_water: 0.9567 - val_loss: 1.1465 - val_miou: 0.6441 - learning_rate: 3.0000e-05
+Epoch 27/80
+160/160 - 24s - 152ms/step - accuracy: 0.9327 - iou_agriculture_rangeland: 0.9003 - iou_barren: 0.5353 - iou_forest: 0.8093 - iou_unknown: 0.0000e+00 - iou_urban: 0.8847 - iou_water: 0.9485 - loss: 0.9810 - miou: 0.6797 - val_accuracy: 0.9148 - val_iou_agriculture_rangeland: 0.8614 - val_iou_barren: 0.3491 - val_iou_forest: 0.8550 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8838 - val_iou_water: 0.9618 - val_loss: 1.1521 - val_miou: 0.6518 - learning_rate: 3.0000e-05
+Epoch 28/80
+160/160 - 24s - 152ms/step - accuracy: 0.9310 - iou_agriculture_rangeland: 0.8984 - iou_barren: 0.5471 - iou_forest: 0.8088 - iou_unknown: 0.0000e+00 - iou_urban: 0.8673 - iou_water: 0.9413 - loss: 0.9883 - miou: 0.6771 - val_accuracy: 0.9146 - val_iou_agriculture_rangeland: 0.8623 - val_iou_barren: 0.3444 - val_iou_forest: 0.8598 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8850 - val_iou_water: 0.9630 - val_loss: 1.1452 - val_miou: 0.6524 - learning_rate: 3.0000e-05
+Epoch 29/80
+160/160 - 24s - 152ms/step - accuracy: 0.9336 - iou_agriculture_rangeland: 0.9009 - iou_barren: 0.5493 - iou_forest: 0.8126 - iou_unknown: 0.0000e+00 - iou_urban: 0.8772 - iou_water: 0.9507 - loss: 0.9740 - miou: 0.6818 - val_accuracy: 0.9126 - val_iou_agriculture_rangeland: 0.8587 - val_iou_barren: 0.3209 - val_iou_forest: 0.8579 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8818 - val_iou_water: 0.9640 - val_loss: 1.1373 - val_miou: 0.6472 - learning_rate: 3.0000e-05
+Epoch 30/80
+160/160 - 24s - 152ms/step - accuracy: 0.9289 - iou_agriculture_rangeland: 0.8943 - iou_barren: 0.5500 - iou_forest: 0.8155 - iou_unknown: 0.0000e+00 - iou_urban: 0.8765 - iou_water: 0.9257 - loss: 0.9942 - miou: 0.6770 - val_accuracy: 0.9167 - val_iou_agriculture_rangeland: 0.8663 - val_iou_barren: 0.3636 - val_iou_forest: 0.8572 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8815 - val_iou_water: 0.9578 - val_loss: 1.1490 - val_miou: 0.6544 - learning_rate: 3.0000e-05
+Epoch 31/80
+
+Epoch 31: ReduceLROnPlateau reducing learning rate to 1.4999999621068127e-05.
+160/160 - 24s - 152ms/step - accuracy: 0.9349 - iou_agriculture_rangeland: 0.9021 - iou_barren: 0.5878 - iou_forest: 0.8087 - iou_unknown: 0.0000e+00 - iou_urban: 0.8856 - iou_water: 0.9493 - loss: 0.9692 - miou: 0.6889 - val_accuracy: 0.9144 - val_iou_agriculture_rangeland: 0.8651 - val_iou_barren: 0.3190 - val_iou_forest: 0.8573 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8883 - val_iou_water: 0.9599 - val_loss: 1.1466 - val_miou: 0.6483 - learning_rate: 3.0000e-05
+Epoch 32/80
+160/160 - 24s - 152ms/step - accuracy: 0.9351 - iou_agriculture_rangeland: 0.9021 - iou_barren: 0.5901 - iou_forest: 0.8175 - iou_unknown: 0.0000e+00 - iou_urban: 0.8881 - iou_water: 0.9436 - loss: 0.9658 - miou: 0.6902 - val_accuracy: 0.9144 - val_iou_agriculture_rangeland: 0.8636 - val_iou_barren: 0.3374 - val_iou_forest: 0.8515 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8851 - val_iou_water: 0.9630 - val_loss: 1.1430 - val_miou: 0.6501 - learning_rate: 1.5000e-05
+Epoch 33/80
+160/160 - 24s - 152ms/step - accuracy: 0.9409 - iou_agriculture_rangeland: 0.9111 - iou_barren: 0.6064 - iou_forest: 0.8237 - iou_unknown: 0.0000e+00 - iou_urban: 0.9030 - iou_water: 0.9593 - loss: 0.9467 - miou: 0.7006 - val_accuracy: 0.9136 - val_iou_agriculture_rangeland: 0.8632 - val_iou_barren: 0.3279 - val_iou_forest: 0.8564 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8808 - val_iou_water: 0.9616 - val_loss: 1.1390 - val_miou: 0.6483 - learning_rate: 1.5000e-05
+Epoch 34/80
+160/160 - 24s - 152ms/step - accuracy: 0.9382 - iou_agriculture_rangeland: 0.9077 - iou_barren: 0.5994 - iou_forest: 0.8205 - iou_unknown: 0.0000e+00 - iou_urban: 0.8744 - iou_water: 0.9544 - loss: 0.9511 - miou: 0.6927 - val_accuracy: 0.9125 - val_iou_agriculture_rangeland: 0.8612 - val_iou_barren: 0.3274 - val_iou_forest: 0.8553 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8824 - val_iou_water: 0.9561 - val_loss: 1.1471 - val_miou: 0.6471 - learning_rate: 1.5000e-05
+Epoch 35/80
+160/160 - 24s - 152ms/step - accuracy: 0.9392 - iou_agriculture_rangeland: 0.9096 - iou_barren: 0.6017 - iou_forest: 0.8226 - iou_unknown: 0.0000e+00 - iou_urban: 0.8893 - iou_water: 0.9515 - loss: 0.9538 - miou: 0.6958 - val_accuracy: 0.9147 - val_iou_agriculture_rangeland: 0.8632 - val_iou_barren: 0.3331 - val_iou_forest: 0.8599 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8831 - val_iou_water: 0.9618 - val_loss: 1.1453 - val_miou: 0.6502 - learning_rate: 1.5000e-05
+Epoch 36/80
+160/160 - 24s - 152ms/step - accuracy: 0.9412 - iou_agriculture_rangeland: 0.9118 - iou_barren: 0.6286 - iou_forest: 0.8261 - iou_unknown: 0.0000e+00 - iou_urban: 0.8915 - iou_water: 0.9535 - loss: 0.9454 - miou: 0.7019 - val_accuracy: 0.9157 - val_iou_agriculture_rangeland: 0.8645 - val_iou_barren: 0.3409 - val_iou_forest: 0.8610 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8869 - val_iou_water: 0.9613 - val_loss: 1.1344 - val_miou: 0.6524 - learning_rate: 1.5000e-05
+Epoch 37/80
+
+Epoch 37: ReduceLROnPlateau reducing learning rate to 7.499999810534064e-06.
+160/160 - 24s - 152ms/step - accuracy: 0.9427 - iou_agriculture_rangeland: 0.9135 - iou_barren: 0.6246 - iou_forest: 0.8280 - iou_unknown: 0.0000e+00 - iou_urban: 0.8916 - iou_water: 0.9606 - loss: 0.9352 - miou: 0.7031 - val_accuracy: 0.9169 - val_iou_agriculture_rangeland: 0.8672 - val_iou_barren: 0.3483 - val_iou_forest: 0.8545 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8916 - val_iou_water: 0.9606 - val_loss: 1.1331 - val_miou: 0.6537 - learning_rate: 1.5000e-05
+Epoch 38/80
+160/160 - 24s - 152ms/step - accuracy: 0.9425 - iou_agriculture_rangeland: 0.9131 - iou_barren: 0.6005 - iou_forest: 0.8292 - iou_unknown: 0.0000e+00 - iou_urban: 0.9039 - iou_water: 0.9641 - loss: 0.9378 - miou: 0.7018 - val_accuracy: 0.9160 - val_iou_agriculture_rangeland: 0.8644 - val_iou_barren: 0.3425 - val_iou_forest: 0.8600 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8911 - val_iou_water: 0.9634 - val_loss: 1.1312 - val_miou: 0.6536 - learning_rate: 7.5000e-06
+Epoch 39/80
+160/160 - 24s - 153ms/step - accuracy: 0.9421 - iou_agriculture_rangeland: 0.9133 - iou_barren: 0.6263 - iou_forest: 0.8298 - iou_unknown: 0.0000e+00 - iou_urban: 0.9005 - iou_water: 0.9532 - loss: 0.9377 - miou: 0.7039 - val_accuracy: 0.9158 - val_iou_agriculture_rangeland: 0.8646 - val_iou_barren: 0.3379 - val_iou_forest: 0.8593 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8877 - val_iou_water: 0.9623 - val_loss: 1.1283 - val_miou: 0.6520 - learning_rate: 7.5000e-06
+Epoch 40/80
+160/160 - 24s - 152ms/step - accuracy: 0.9424 - iou_agriculture_rangeland: 0.9138 - iou_barren: 0.6022 - iou_forest: 0.8314 - iou_unknown: 0.0000e+00 - iou_urban: 0.8958 - iou_water: 0.9609 - loss: 0.9357 - miou: 0.7007 - val_accuracy: 0.9163 - val_iou_agriculture_rangeland: 0.8652 - val_iou_barren: 0.3397 - val_iou_forest: 0.8584 - val_iou_unknown: 0.0000e+00 - val_iou_urban: 0.8902 - val_iou_water: 0.9632 - val_loss: 1.1329 - val_miou: 0.6528 - learning_rate: 7.5000e-06
+Epoch 40: early stopping
+Restoring model weights from the end of the best epoch: 25.
+Traceback (most recent call last):
+  File "/home/jvpcms/ime/PFC/train_scripts/run_finetune_experiments.py", line 323, in <module>
+    main()
+    ~~~~^^
+  File "/home/jvpcms/ime/PFC/train_scripts/run_finetune_experiments.py", line 304, in main
+    preds = predict_labels(model, x_val, args.batch_size)
+  File "/home/jvpcms/ime/PFC/train_scripts/run_finetune_experiments.py", line 177, in predict_labels
+    model(chunk, training=False).numpy(), axis=-1
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvpcms/ime/PFC/.venv/lib/python3.13/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/jvpcms/ime/PFC/.venv/lib/python3.13/site-packages/tensorflow/python/eager/execute.py", line 59, in quick_execute
+    except TypeError as e:
+    ...<5 lines>...
+      raise e
+tensorflow.python.framework.errors_impl.NotFoundError: Exception encountered when calling Conv2D.call().
+
+[1m{{function_node __wrapped__Conv2D_device_/job:localhost/replica:0/task:0/device:GPU:0}} No algorithm worked!  Error messages:
+  Profiling failure on CUDNN engine eng1{}: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 80.01MiB. [tf-allocator-allocation-error='']
+  Profiling failure on CUDNN engine eng28{}: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 16.00MiB. [tf-allocator-allocation-error='']
+  Profiling failure on CUDNN engine eng0{}: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 16.00MiB. [tf-allocator-allocation-error='']
+  Profiling failure on CUDNN engine eng71{}: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 16.00MiB. [tf-allocator-allocation-error='']
+  Profiling failure on CUDNN engine eng4{}: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 83.20MiB. [tf-allocator-allocation-error=''] [Op:Conv2D][0m
+
+Arguments received by Conv2D.call():
+  • inputs=tf.Tensor(shape=(8, 256, 256, 16), dtype=float32)

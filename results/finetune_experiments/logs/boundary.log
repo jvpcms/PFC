@@ -1,0 +1,4 @@
+=== 2026-09-23T00:45:10-03:00 START finetune-1e-3
+=== 2026-09-23T01:03:56-03:00 END finetune-1e-3 rc=0
+=== 2026-09-23T01:03:56-03:00 SKIP finetune-lr0.001 (already scored)
+=== 2026-09-23T01:03:56-03:00 BOUNDARY DONE

@@ -1,0 +1,23 @@
+== scratch-lr0.0001
+train 80 tiles -> 1280 sub-tiles | test 20 tiles -> 320 sub-tiles
+eval-only: results/finetune_experiments/scratch-lr0.0001/best.keras
+
+-- unk05: 286/320 sub-tiles, 4,492 Unknown px excluded
+   px acc 0.9414   mIoU 0.8035
+     Urban                  0.8941
+     Agriculture_Rangeland  0.8950
+     Forest                 0.8644
+     Water                  0.9477
+     Barren                 0.4162
+     Unknown                absent
+
+-- unk25: 305/320 sub-tiles, 144,229 Unknown px excluded
+   px acc 0.9430   mIoU 0.8046
+     Urban                  0.8940
+     Agriculture_Rangeland  0.9013
+     Forest                 0.8676
+     Water                  0.9476
+     Barren                 0.4127
+     Unknown                absent
+
+wrote /home/jvpcms/ime/PFC/results/finetune_experiments/scratch-lr0.0001/metrics.json

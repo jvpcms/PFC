@@ -1,0 +1,23 @@
+== finetune-lr3e-05
+train 80 tiles -> 1280 sub-tiles | test 20 tiles -> 320 sub-tiles
+eval-only: results/finetune_experiments/finetune-lr3e-05/best.keras
+
+-- unk05: 286/320 sub-tiles, 4,492 Unknown px excluded
+   px acc 0.9466   mIoU 0.8117
+     Urban                  0.8949
+     Agriculture_Rangeland  0.9051
+     Forest                 0.8643
+     Water                  0.9590
+     Barren                 0.4349
+     Unknown                absent
+
+-- unk25: 305/320 sub-tiles, 144,229 Unknown px excluded
+   px acc 0.9480   mIoU 0.8135
+     Urban                  0.8948
+     Agriculture_Rangeland  0.9106
+     Forest                 0.8671
+     Water                  0.9590
+     Barren                 0.4361
+     Unknown                absent
+
+wrote /home/jvpcms/ime/PFC/results/finetune_experiments/finetune-lr3e-05/metrics.json

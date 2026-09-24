@@ -1,0 +1,735 @@
+e Nesta aula você vai aprender como
+0:02
+fazer a composição colorida e a fusão
+0:04
+das imagens do satélite 54 a obtendo
+0:08
+assim e machos com 2 metros de resolução
+0:11
+espacial seja muito bem-vindo seja muito
+0:14
+bem-vindo ao nosso canal Eu sou Anderson
+0:16
+Medeiros fundador da Click gel e aqui eu
+0:18
+ensino como você pode ser realmente
+0:20
+independente quando o assunto é produção
+0:23
+de mapas e geoprocessamento a fim de
+0:25
+atingir os seus objetivos que eles sejam
+0:28
+acadêmicos ou profissionais e até gerar
+0:30
+renda A partir dessa habilidade se assim
+0:33
+você quiser então se você por acaso
+0:35
+ainda não está inscrito que no canal
+0:37
+inscreva-se agora mesmo e ative as
+0:39
+notificações para ser avisado dos novos
+0:42
+conteúdos que nós publicamos
+0:43
+regularmente aqui na plataforma Além
+0:46
+disso eu quero convidar você a deixar o
+0:48
+seu comentário aqui embaixo dizendo o
+0:50
+que você achou dessa aula e ficou com
+0:52
+alguma dúvida alguma pergunta Vai ser um
+0:54
+prazer fazer o máximo para responder à
+0:56
+sua questão Claro deixe seu like para
+0:59
+que esse é a mais pessoas vão lembrar
+1:02
+também que esse vídeo é uma sequência do
+1:06
+conteúdo anterior onde eu ensinei como
+1:08
+você pode fazer o download dessas
+1:10
+imagens eu mostrei o passo a passo de
+1:12
+como você baixa as imagens do Silas
+1:14
+quatro a a parte do catálogo do INPI se
+1:17
+você não sabe baixar essas imagens não
+1:19
+viu essa aula Clique agora mesmo no link
+1:21
+que está na descrição desse conteúdo Tá
+1:25
+bom então começa a nossa explicação eu
+1:28
+quero apresentar para vocês o Outeiro
+1:30
+metodológico que nós vamos seguir a
+1:31
+partir agora para você entender melhor a
+1:34
+sequência metodológica que nós vamos
+1:35
+seguir aqui é bom você lembrar que
+1:38
+quando nós baixamos as imagens brutas lá
+1:41
+no site do INPI você tem acesso a banda
+1:44
+do vermelho visível do verde visível do
+1:47
+azul visível do infravermelho essas com
+1:50
+8 metros de louça espacial e tem a
+1:54
+imagem da banda Pan a banda pancromática
+1:57
+que é numerador umbanda 0 já tem 2 m de
+2:02
+resolução espacial então pra atingir o
+2:04
+objetivo dessa moça ao nós vamos dar
+2:06
+dois passos metodológico o primeiro
+2:09
+passo é realizar o que nós chamamos de
+2:11
+empilhamento de bandas espectrais nós
+2:14
+vamos unir no ano com o arquivo que será
+2:17
+uma composição colorida as bandas que
+2:19
+tem 8 m de resolução espacial esse caso
+2:23
+a banda do vermelho visível Verde
+2:25
+visível a sua visível e a banda do
+2:27
+infravermelho repito elas tem 8 metros
+2:30
+de resolução espacial inclusive nós
+2:33
+mostramos como você confere isso na aula
+2:35
+anterior eu não sei como é que você
+2:37
+verifica a soluções passaram a sua
+2:39
+imagem usamos só te queixes depois disso
+2:43
+depois de fazer o empilhamento delas em
+2:44
+uma única imagem para termos um arquivo
+2:47
+único com as propriedades espectrais de
+2:49
+todas elas juntas nós vamos realizar um
+2:51
+processo chamado de fusão demais hoje
+2:55
+nós vamos pegar a banda plan essa banda
+2:57
+que tem dois metros de Êxodo hoje e
+3:01
+vamos usar ela para melhorar a resolução
+3:04
+da imagem da composição colorida ou seja
+3:07
+vamos gerar um arquivo que tem as
+3:09
+propriedades espectrais de todas as
+3:11
+bandas que foram Unidas só que agora em
+3:14
+vez de ter oito m18 espacial vai ter
+3:18
+apenas dois metros vocês vão a solução
+3:20
+muito melhor o saco significar ainda
+3:23
+mais elementos naquela imagem por conta
+3:25
+dessa alta resolução espacial entendeu a
+3:28
+sequência primeiro fazer o pagamento une
+3:30
+todas as imagens como se fossem um
+3:32
+arquivo ou não só composição colorida
+3:34
+portanto e depois pegamos essa
+3:37
+composição e fazemos a fusão com a banda
+3:40
+Pan que tem 2 m entende desse passo a
+3:43
+passo Vamos para o Egito colocar a mão
+3:46
+nessas imagens de satélite Olha só nesse
+3:48
+momento você está visualizando o que diz
+3:50
+as mesmas imagens que eu baixei no
+3:52
+episódio anterior eu coloquei aqui na
+3:55
+nossa árvore de Camaro sou imagens da
+3:57
+região do Distrito Federal que pega o
+3:59
+Edu é a cidade de Brasília que você está
+4:02
+visualizando aqui na tela você consegue
+4:03
+observar aqui essa área que lembra o
+4:06
+formato de um avião essa imagem que está
+4:09
+sobre as demais é a banda 4 mil Tec
+4:12
+numeração bota quatro bota três bota
+4:14
+dois Brandão elas estão aqui com a
+4:17
+solução de 8 metros que eu falei nós
+4:19
+temos a banda zero que a banda Pan que
+4:21
+tem 2 m de resolução espacial Então
+4:25
+primeiramente vamos fazer a composição
+4:26
+colorido para isso eu vou acessar o menu
+4:29
+rasta na opção miscelânea e depois
+4:32
+mesclado agora uma observação sobre essa
+4:36
+janela que foi aberta aqui mesclar eu
+4:38
+vou mostrar para vocês esse detalho
+4:39
+depois vamos conferir a situação nas
+4:42
+imagens Olha só um dos parâmetros que
+4:45
+nós vamos fornecer na construção do
+4:48
+empilhamento para a composição colorida
+4:50
+é o tipo de rastreio e saída e aqui tem
+4:54
+algumas opções o padrão é flor de 32 mas
+4:57
+tem várias outras opções eu tenho que e
+5:00
+Qual é o padrão da imagem que eu estou
+5:02
+trabalhando estou por isso eu vou Fechar
+5:05
+essa janela aqui de mesclar as imagens e
+5:08
+vou nas propriedades do meu Rastro vou
+5:11
+fechar aqui vou acessar sua pedágio de
+5:13
+qual que é uma dessas imagens que tem
+5:16
+resolução de 8 metros já sei vou pegar
+5:19
+essa primeira imagem mesmo e nas
+5:20
+propriedades você vai ver que tenha que
+5:23
+informação nada informação onde tem aqui
+5:27
+dizendo o tipo de dado
+5:29
+2016 que é o enterro de 16 bits com
+5:32
+sinal Então esse aqui é o parâmetro que
+5:36
+eu tenho que fornecer naquela janela na
+5:38
+hora de fazer a minha composição
+5:40
+colorida tão íntimo 16 já posso fechar
+5:43
+as propriedades todas as outras imagens
+5:45
+que as mesmas características e se a
+5:47
+questão de parâmetro do tipo do w não
+5:50
+posso em novamente razter na opção
+5:52
+miscelânea mesclado e aqui eu vou
+5:56
+informar Quais são as camadas de entrada
+5:58
+eu posso clicar você e
+6:00
+nesse caso eu posso marcar todas elas
+6:04
+com exceção da banda Pan já que a
+6:06
+composição colorida vai pegar as bandas
+6:09
+que tem resolução de 8 metros até porque
+6:12
+isso é mais adequado a fazer a
+6:13
+composição coloridos apenas imagens que
+6:16
+a mesma resolução espacial e depois eu
+6:19
+vou clicar em Ok marquei aqui as quatro
+6:23
+bandas selecionadas vou colocar cada
+6:26
+arquivo de entrada em uma banda separado
+6:28
+e isso aqui quer dizer que embora ele
+6:30
+vai gerar um único arquivo você vai ter
+6:33
+um arquivo que é muito banda usar poder
+6:35
+fazer composições coloridas no no
+6:37
+arquivo trocando a ordem das bandas como
+6:40
+você sempre ficar daqui a pouco onde tem
+6:43
+indicação de tipo de dado de saída nós
+6:46
+vamos trocar de flor de 32 para 2016 que
+6:50
+é o fator que nós vemos lá nas
+6:52
+propriedades na água informação e o Finn
+6:55
+onde tem aqui mesclado que é o nosso
+6:57
+resultado você pode salvar tanto como
+7:00
+arquivo temporário como arquivo
+7:01
+permanente Eu recomendo que pra esse
+7:04
+caso você salve como um arquivo
+7:05
+permanente vou clicar aqui nas
+7:07
+reticências escolher a opção no arquivo
+7:09
+para ser um arquivo definitivo vou
+7:11
+navegar até a pasta que eu vou utilizar
+7:13
+para salvar o arquivo e eu vou colocar
+7:16
+aqui o nome vi comp
+7:19
+e colorida Eu sabia que a imagem da
+7:22
+composição Colorida não acho que vai
+7:23
+poder de ser um outro nome sempre
+7:25
+lembrando evitar espaços e assento o
+7:27
+nome do arquivo vou clicar em salvar e
+7:30
+vou pedir agora para executar o processo
+7:32
+de criação veja que está habilitado aqui
+7:34
+a opção de abrir arquivo de saída depois
+7:37
+Executar a ferramenta porque ele tem
+7:39
+executar ele vai processar logicamente o
+7:42
+tempo pode variar de máquina para
+7:43
+máquina até porque o volume do dado mais
+7:45
+significativo e também vai depender das
+7:48
+configurações do seu computador vou
+7:50
+fazer aqui um corte para como terminar o
+7:52
+processamento eu vou estar aqui com
+7:53
+vocês foi finalizado o processo já
+7:56
+apareceu minha composição colorida aqui
+7:57
+no fundo daqui a pouco vamos trabalhar
+7:59
+na simbologia dela mas eu posso Fechar
+8:02
+essa janela aqui clicando incluso e aqui
+8:04
+está a minha composição Colorida o que é
+8:06
+que nós vamos fazer eu vou clicar com o
+8:08
+botão direito e escolha a opção
+8:10
+propriedades
+8:12
+aí nessa janela agora das propriedades
+8:15
+da imagem da composição colorida nós
+8:18
+vamos em simbologia
+8:19
+a simbologia Note que nós temos como
+8:22
+alterar qual é a banda que está
+8:24
+atribuída ao canal do vermelho do verde
+8:26
+do azul Note que quando eu abro qualquer
+8:29
+um desses paramos de banda um dois e
+8:31
+três Eu tenho quatro opções de bandas
+8:34
+aqui dentro e por que isso porque nós
+8:36
+fizemos uma composição colorida
+8:37
+empilhando 4 arquivos a banda um dois
+8:41
+três quatro que são a do vermelho verde
+8:43
+azul visíveis e também do infravermelho
+8:46
+da banda do infravermelho e aqui eu vou
+8:48
+colocar a composição três para a banda
+8:51
+do vermelho a banda verde é a banda dois
+8:54
+e a Banda Azul vou colocar um para as
+8:56
+imagens do simples quatro a essa
+9:00
+sequência banda 3 banda dois e Banda um
+9:02
+vai dar como resultado nós temos uma
+9:05
+composição e cores a deles então vou
+9:08
+clicar aqui em aplicar ele já apresentou
+9:11
+aqui as coisas desse posso trabalhar a
+9:14
+parte aqui de configurações contraste
+9:17
+assim por diante se assim eu quiser e
+9:19
+como é que fica aí mágico e depois eu
+9:22
+também posso trabalhar sabe como vou
+9:24
+Fechar essa janela aqui e para ficar
+9:26
+mais vídeo da imagem eu posso usar essa
+9:29
+barra de ferramentas que a barra de
+9:31
+ferramentas Rastro se você não tá
+9:33
+visualizando essa barra de ferramentas
+9:35
+no seu que diz essa barra aqui que é que
+9:38
+você pode fazer você pode clicar com o
+9:41
+botão direito em larga vazia da barra de
+9:43
+ferramentas e você pode habilitar essa
+9:47
+opção que a barra de ferramentas arraste
+9:50
+marcando essa opção aqui vai aparecer
+9:53
+essa barra de ferramentas então com o
+9:55
+nome da camada selecionado eu posso
+9:57
+clicar nesse primeiro ícone ele já vai
+10:01
+aplicar o contraste como você acabou de
+10:03
+ver agora está aqui usando cores
+10:05
+verdadeiros tá bom a composição em cores
+10:08
+agradeça ficando nítida seria aí a
+10:10
+imagem da forma que você teria impressão
+10:12
+a olho nu o nosso olho humano
+10:15
+bom então acabamos a primeira etapa que
+10:17
+foi a composição colorida como fazer
+10:19
+agora a fusão dessa imagem aí para isso
+10:22
+nós vamos acessar o menu processar caixa
+10:27
+de ferramentas e vai abrir aqui e aqui
+10:30
+nós vamos procurar pelo opção Pan
+10:32
+sharping que essa opção aqui ó nas
+10:35
+ferramentas do jedal miscelânea de racha
+10:37
+manchar que é ferramenta executa a fusão
+10:41
+das imagens com a banda Pan vou dar aqui
+10:43
+um duplo-clique para executar janela e
+10:46
+aqui você vai ter que fornecer duas
+10:48
+informações principais primeiro e
+10:50
+pergunta qual conjunto de dados
+10:52
+espectrais ou seja qual é a banda que
+10:54
+tem o empilhamento das bandas espectrais
+10:57
+que se chamam de conjunto de bandas
+10:59
+nesse caso é o nosso arquivo com o nome
+11:01
+de comp colorida composição colorida e
+11:04
+onde tem indicação de conjunto de dados
+11:06
+pancromáticas é a nossa banda Pan então
+11:09
+vou procurar aqui na lista a numeração
+11:11
+da banda zero essa banda zero é a minha
+11:14
+banda tá acabando aqui tem 2 m de
+11:17
+resolução ela vai ser a base para
+11:19
+melhorar a resolução da composição
+11:21
+colorida como daqui a pouco no final vou
+11:23
+mostrar o comparação de resultados duas
+11:26
+salvar como arquivo permanente Tá bom
+11:27
+vou clicar aqui em Salvador arquivo
+11:29
+depois eu mostrar pra vocês o tamanho
+11:31
+pensativo ficou e vou colocar aqui o
+11:34
+nome de fibras underline Fusion nada Ou
+11:40
+seja a imagem para ser rezada a fusão
+11:42
+vou clicar em salvar vou clicar em
+11:45
+executar o tempo de processamento mais
+11:47
+uma vez eu demorar de acordo com a sua
+11:49
+máquinas configurações dela e assim por
+11:51
+diante vou fazer um corte nesse ponto do
+11:53
+vídeo e volta a subir concluir o
+11:55
+processamento olha só que legal acabou o
+11:58
+processo de fusão vou clicar aqui em
+12:00
+incluso ou também fechar que a janela da
+12:03
+caixa de ferramentas de processamento e
+12:05
+vou mandar para você uma comparação olha
+12:08
+só essa imagem que tá aparecendo para
+12:10
+você nesse momento é a banda usa nada
+12:13
+vou dar um zoom daqui a pouco você com é
+12:15
+uma com a outra tá bom mas deixa eu
+12:17
+desabilitar logo a visualização das
+12:20
+demais bandas
+12:22
+ó e aqui eu vou mostrar para você o
+12:24
+seguinte estão aproximação
+12:27
+eu vou demorar um pouco para renderizar
+12:29
+normal essa imagem que você está
+12:31
+visualizando nesse momento é a banda que
+12:34
+foi funcionária que tem dois metros de
+12:36
+resolução espacial se eu clicar com o
+12:38
+botão direito escolha aqui propriedades
+12:40
+você vai ver aqui na água informação lá
+12:43
+embaixo onde tem que tamanho do Pixel
+12:44
+ele disse que tem dois metros diferente
+12:48
+da composição colorida que quando nós
+12:50
+vamos ver a mesma informação ele indica
+12:52
+que tem 8 m de resolução tão bravo
+12:55
+comparações mais clara vou dar um zoom
+12:58
+maior ainda em uma área aqui da imagem
+13:00
+para você poder visualizar Olha só vou
+13:03
+dar um zoom aqui nessa região específica
+13:06
+para você poder comparar vamos ver aqui
+13:10
+com o pan
+13:11
+a e agora olha só essa imagem que você
+13:15
+tá vendo ela é de 2 metros olha agora a
+13:19
+de 8 metros
+13:20
+E como você aqui ver bem menos
+13:22
+informações na solução de 8 metros a de
+13:26
+2 metros tem o orçamento maior
+13:28
+detalhamento vou dar um um ainda maior
+13:30
+nessa região aqui que tem as edificações
+13:34
+daqui os olha só o que você consegue ver
+13:36
+na banda de 2 metros e com ficaria com a
+13:40
+banda e 8 metros tudo tem que ser
+13:42
+avisado quando você olha aí para 8
+13:44
+metros e você consegue visualizar bem
+13:46
+melhor na Banda com esses dois métodos
+13:50
+de resolução tão perfeitamente você
+13:52
+consegue ver aqui a evolução que a
+13:55
+imagem tem a qualidade quando você faz o
+13:57
+funcionamento e vamos lá para você agora
+14:00
+o tamanho do arquivo que foi geral dá
+14:01
+uma olhada aqui nós temos as bandas
+14:04
+originais onde se você olhar aqui a
+14:07
+indicação vai aparecer do tamanho a
+14:09
+banda 4 a banda 321 ela é juntas tem aí
+14:14
+cega de 700 megabytes tá vendo aqui
+14:16
+cerca de 700 megawatts cada uma delas em
+14:19
+média tem aí uns o melhor mais
+14:21
+aproximadamente e 150 200 megawatts a
+14:25
+banda Pan que tem a resolução de 2
+14:28
+metros de forma brutas ela já tinha:
+14:32
+72gb somente a banda zero a composição
+14:36
+colorida ela ficou com 1gb e meio já a
+14:40
+banda funcionar Olha só
+14:42
+24 gigabytes
+14:44
+automaticamente pela qualidade dos
+14:47
+obteve com a fusão você também vai ter
+14:49
+um volume maior no arquivo entendeu a
+14:52
+ideia conseguiu captar como esse dado
+14:54
+esse tipo de arquivo que tá disponível
+14:56
+gratuitamente no site do INPI faz total
+14:59
+diferença para os seus projetos
+15:00
+acadêmicos ou profissionais mais uma vez
+15:03
+a imagem de 8ms solução o que já uma
+15:06
+ótima resolução para nós das aplicações
+15:09
+e aqui comparando com a imagem com 2 m
+15:11
+de resolução espacial Então pessoal essa
+15:16
+foi nossa aula sobre composição colorida
+15:19
+e fusões a imagem do Sims 4 a ficou com
+15:23
+alguma dúvida tem uma pergunta teremos
+15:25
+outros vídeos usando essas imagens
+15:26
+inclusive ensinando como baixar o soft
+15:29
+aqueles deixa aqui seu comentário deixe
+15:32
+o seu like e eu vejo você na nossa
+15:34
+próxima aula no nosso próximo vídeo

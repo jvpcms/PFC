@@ -1,0 +1,153 @@
+{
+  "arm": "scratch",
+  "name": "scratch-lr0.0001",
+  "lr": 0.0001,
+  "batch_size": 8,
+  "epochs_max": 80,
+  "seed": 42,
+  "n_train_tiles": 80,
+  "n_val_tiles": 20,
+  "n_train_subtiles": 1280,
+  "n_val_subtiles": 320,
+  "base_checkpoint": null,
+  "encoder_init": "imagenet",
+  "unknown_policy": "trained as an ordinary class; excluded only when scoring",
+  "tiling": "4x4 non-overlapping 256px grid",
+  "protocol": {
+    "unk05": {
+      "threshold": 0.05,
+      "sub_tiles_kept": 286,
+      "sub_tiles_total": 320,
+      "pixels_scored": 18738804,
+      "pixels_excluded_unknown": 4492,
+      "px_acc": 0.9414323881075868,
+      "miou_present": 0.8034643434767196,
+      "iou_per_class": {
+        "Urban": 0.8940567121342762,
+        "Agriculture_Rangeland": 0.8950050351433846,
+        "Forest": 0.8644081261304584,
+        "Water": 0.9476593278653433,
+        "Barren": 0.41619251611013475,
+        "Unknown": null
+      },
+      "confusion": [
+        [
+          1467232,
+          83365,
+          6921,
+          0,
+          4341,
+          0
+        ],
+        [
+          52661,
+          8547188,
+          186760,
+          90826,
+          167235,
+          0
+        ],
+        [
+          20045,
+          194260,
+          2861713,
+          2626,
+          9779,
+          0
+        ],
+        [
+          1153,
+          118275,
+          21696,
+          4537843,
+          10603,
+          0
+        ],
+        [
+          5377,
+          109307,
+          6804,
+          5453,
+          227341,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "unk25": {
+      "threshold": 0.25,
+      "sub_tiles_kept": 305,
+      "sub_tiles_total": 320,
+      "pixels_scored": 19844251,
+      "pixels_excluded_unknown": 144229,
+      "px_acc": 0.9429542087529532,
+      "miou_present": 0.8046444928296668,
+      "iou_per_class": {
+        "Urban": 0.8940311076067763,
+        "Agriculture_Rangeland": 0.9012891892542901,
+        "Forest": 0.8675932496626089,
+        "Water": 0.9475793813124115,
+        "Barren": 0.41272953631224646,
+        "Unknown": null
+      },
+      "confusion": [
+        [
+          1467232,
+          83365,
+          6921,
+          0,
+          4341,
+          0
+        ],
+        [
+          52661,
+          9429219,
+          193579,
+          91063,
+          186747,
+          0
+        ],
+        [
+          20092,
+          197497,
+          3036913,
+          2793,
+          13846,
+          0
+        ],
+        [
+          1153,
+          118275,
+          21696,
+          4537843,
+          10603,
+          0
+        ],
+        [
+          5377,
+          109518,
+          7051,
+          5453,
+          241013,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  },
+  "eval_checkpoint": "results/finetune_experiments/scratch-lr0.0001/best.keras"
+}

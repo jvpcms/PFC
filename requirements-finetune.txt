@@ -1,0 +1,27 @@
+# Dependencies for Finetune_INPE_UNet.ipynb on a remote GPU machine.
+#
+# A subset of the repo's requirements.txt: only what the fine-tuning notebook and
+# the three modules it imports (train_scripts/{eval_inpe_tiles,
+# export_finetune_split,train_deepglobe_unet}.py) actually need. No rasterio,
+# geopandas, pystac_client or kaggle -- those belong to the scene-download and
+# pansharpening pipeline, which runs before this and not on the training box.
+#
+# Versions pinned to the environment the notebook was verified against.
+#     pip install -r requirements-finetune.txt
+
+# CUDA wheels included: the notebook raises if no GPU is visible.
+tensorflow[and-cuda]==2.21.0
+keras==3.14.1
+
+numpy==2.4.4
+Pillow==12.2.0
+
+# Experiment tracking. WandbMetricsLogger / WandbModelCheckpoint come from
+# wandb.integration.keras.
+wandb==0.27.0
+
+# Loads .env for WANDB_API_KEY.
+python-dotenv==1.2.2
+
+# Jupyter kernel, to run the notebook itself.
+ipykernel==7.2.0

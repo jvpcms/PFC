@@ -1,0 +1,158 @@
+{
+  "arm": "finetune",
+  "name": "finetune-lr1e-05",
+  "lr": 1e-05,
+  "batch_size": 8,
+  "epochs_max": 80,
+  "seed": 42,
+  "n_train_tiles": 80,
+  "n_val_tiles": 20,
+  "n_train_subtiles": 1280,
+  "n_val_subtiles": 320,
+  "base_checkpoint": "best-20260702-downsample-overlap-color-aug-dropout-30-merged-class-batch-32-lr-1e-4-miou-67.keras",
+  "encoder_init": "deepglobe",
+  "unknown_policy": "trained as an ordinary class; excluded only when scoring",
+  "tiling": "4x4 non-overlapping 256px grid",
+  "epochs_run": 70,
+  "train_seconds": 1902.5,
+  "best_epoch": 55,
+  "keras_val_miou": 0.6607499122619629,
+  "keras_val_accuracy": 0.9182035326957703,
+  "protocol": {
+    "unk05": {
+      "threshold": 0.05,
+      "sub_tiles_kept": 286,
+      "sub_tiles_total": 320,
+      "pixels_scored": 18738804,
+      "pixels_excluded_unknown": 4492,
+      "px_acc": 0.9465140357943869,
+      "miou_present": 0.8081752341955282,
+      "iou_per_class": {
+        "Urban": 0.8934056867032798,
+        "Agriculture_Rangeland": 0.9055376802706993,
+        "Forest": 0.8618398917436195,
+        "Water": 0.9625779020636703,
+        "Barren": 0.41751501019637155,
+        "Unknown": null
+      },
+      "confusion": [
+        [
+          1473670,
+          68526,
+          17737,
+          47,
+          1879,
+          0
+        ],
+        [
+          65878,
+          8609155,
+          242806,
+          12584,
+          114247,
+          0
+        ],
+        [
+          16610,
+          144137,
+          2917584,
+          3331,
+          6761,
+          0
+        ],
+        [
+          439,
+          116158,
+          27234,
+          4530576,
+          15163,
+          0
+        ],
+        [
+          4711,
+          133739,
+          9097,
+          1179,
+          205556,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "unk25": {
+      "threshold": 0.25,
+      "sub_tiles_kept": 305,
+      "sub_tiles_total": 320,
+      "pixels_scored": 19844251,
+      "pixels_excluded_unknown": 144229,
+      "px_acc": 0.9480077630543979,
+      "miou_present": 0.8105289357855066,
+      "iou_per_class": {
+        "Urban": 0.8933580264127038,
+        "Agriculture_Rangeland": 0.9111739991301727,
+        "Forest": 0.8645447249492008,
+        "Water": 0.9624488724209969,
+        "Barren": 0.4211190560144588,
+        "Unknown": null
+      },
+      "confusion": [
+        [
+          1473670,
+          68526,
+          17737,
+          47,
+          1879,
+          0
+        ],
+        [
+          65879,
+          9496947,
+          251555,
+          12723,
+          126165,
+          0
+        ],
+        [
+          16697,
+          150495,
+          3092754,
+          3823,
+          7372,
+          0
+        ],
+        [
+          439,
+          116158,
+          27234,
+          4530576,
+          15163,
+          0
+        ],
+        [
+          4711,
+          134311,
+          9654,
+          1179,
+          218557,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  },
+  "eval_checkpoint": "in-process"
+}

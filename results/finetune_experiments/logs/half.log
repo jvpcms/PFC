@@ -1,0 +1,19 @@
+=== 2026-09-23T09:03:12-03:00 START half-finetune-1e-4
+=== 2026-09-23T09:12:42-03:00 END half-finetune-1e-4 rc=0
+=== 2026-09-23T09:12:42-03:00 START half-scratch-1e-4
+=== 2026-09-23T09:28:34-03:00 END half-scratch-1e-4 rc=0
+=== 2026-09-23T09:28:34-03:00 START half-finetune-3e-4
+=== 2026-09-23T09:41:32-03:00 END half-finetune-3e-4 rc=0
+=== 2026-09-23T09:41:32-03:00 START half-scratch-3e-4
+=== 2026-09-23T09:57:01-03:00 END half-scratch-3e-4 rc=0
+=== 2026-09-23T09:57:01-03:00 START half-finetune-3e-5
+=== 2026-09-23T10:06:32-03:00 END half-finetune-3e-5 rc=0
+=== 2026-09-23T10:06:32-03:00 START half-scratch-3e-5
+=== 2026-09-23T10:24:57-03:00 END half-scratch-3e-5 rc=0
+=== 2026-09-23T10:24:57-03:00 SKIP finetune-lr0.0001-tr40 (already scored)
+=== 2026-09-23T10:24:57-03:00 SKIP scratch-lr0.0001-tr40 (already scored)
+=== 2026-09-23T10:24:57-03:00 SKIP finetune-lr0.0003-tr40 (already scored)
+=== 2026-09-23T10:24:57-03:00 SKIP scratch-lr0.0003-tr40 (already scored)
+=== 2026-09-23T10:24:57-03:00 SKIP finetune-lr3e-05-tr40 (already scored)
+=== 2026-09-23T10:24:57-03:00 SKIP scratch-lr3e-05-tr40 (already scored)
+=== 2026-09-23T10:24:57-03:00 HALF DONE

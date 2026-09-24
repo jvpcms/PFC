@@ -146,13 +146,13 @@ def conv_block(x, filters):
     x = tf.keras.layers.ReLU()(x)
     return x
 
-def decoder_block(x, skip, filters, dropout=0.3):
+def decoder_block(x, skip, filters, dropout):
     x = tf.keras.layers.UpSampling2D(size=(2, 2), interpolation='bilinear')(x)
     x = tf.keras.layers.Concatenate()([x, skip])
     x = conv_block(x, filters)
     return tf.keras.layers.Dropout(dropout)(x)
 
-def build_unet(encoder: str = 'efficientnetb0'):
+def build_unet(dropout, encoder: str = 'efficientnetb0'):
     inputs   = tf.keras.Input(shape=INPUT_SHAPE)
     backbone = tf.keras.applications.EfficientNetB0(
         include_top=False, weights='imagenet', input_tensor=inputs
@@ -160,10 +160,10 @@ def build_unet(encoder: str = 'efficientnetb0'):
     skips  = [backbone.get_layer(n).output for n in SKIP_LAYERS]
     bridge = backbone.output
     x = conv_block(bridge, 256)
-    x = decoder_block(x, skips[3], 256)
-    x = decoder_block(x, skips[2], 128)
-    x = decoder_block(x, skips[1], 64)
-    x = decoder_block(x, skips[0], 32)
+    x = decoder_block(x, skips[3], 256, dropout)
+    x = decoder_block(x, skips[2], 128, dropout)
+    x = decoder_block(x, skips[1], 64, dropout)
+    x = decoder_block(x, skips[0], 32, dropout)
     x = tf.keras.layers.UpSampling2D(size=(2, 2), interpolation='bilinear')(x)
     x = conv_block(x, 16)
     outputs = tf.keras.layers.Conv2D(N_CLASSES, 1, activation='softmax')(x)
@@ -190,7 +190,7 @@ def main(args):
         loss         = 'bce_dice',
         optimizer    = 'adam',
         augmentation   = 'hflip+vflip+rot90+brightness+contrast+saturation+hue',
-        decoder_dropout = 0.3,
+        decoder_dropout = args.dropout,
         tiling       = f'3x3 overlapping grid ({TILE_SIZE}px, stride={(612-TILE_SIZE)//2}px)',
         freeze_epochs   = args.freeze_epochs,
         unfreeze_lr_div = args.unfreeze_lr_div,
@@ -200,7 +200,7 @@ def main(args):
     train_ds, val_ds = make_datasets(args.batch_size)
     print(f'Train batches: {len(train_ds)} | Val batches: {len(val_ds)}')
 
-    model, backbone = build_unet()
+    model, backbone = build_unet(args.dropout)
     def compile_model(lr=args.lr):
         per_class_iou = [
             tf.keras.metrics.IoU(
@@ -297,6 +297,8 @@ if __name__ == '__main__':
                         help='Epochs without improvement before LR reduction')
     parser.add_argument('--es-patience', type=int,   default=10,
                         help='Epochs without improvement before early stopping')
+    parser.add_argument('--dropout',     type=float, default=0.3,
+                        help='Decoder dropout rate')
     parser.add_argument('--freeze-epochs', type=int, default=5,
                         help='Epochs with frozen encoder before full fine-tune (0 = disabled)')
     parser.add_argument('--unfreeze-lr-div', type=float, default=4.0,

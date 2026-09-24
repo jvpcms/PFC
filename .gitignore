@@ -6,3 +6,12 @@ data
 data_zip
 notes
 **/__pycache__/
+
+# QGIS working projects and the rasters they reference: 8 G of local state,
+# reproducible from the scene pipeline.
+qgis_projects/
+# Cached embedding arrays for the QRC appendix.
+eurosat_qrc/_arrays/
+# Trained weights. The released ones live on the pitcic-segmentation release,
+# the rest are reproducible from the sweep. Run metrics are committed.
+*.keras

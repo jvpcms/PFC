@@ -1,0 +1,153 @@
+{
+  "arm": "finetune",
+  "name": "finetune-lr3e-05",
+  "lr": 3e-05,
+  "batch_size": 8,
+  "epochs_max": 80,
+  "seed": 42,
+  "n_train_tiles": 80,
+  "n_val_tiles": 20,
+  "n_train_subtiles": 1280,
+  "n_val_subtiles": 320,
+  "base_checkpoint": "best-20260702-downsample-overlap-color-aug-dropout-30-merged-class-batch-32-lr-1e-4-miou-67.keras",
+  "encoder_init": "deepglobe",
+  "unknown_policy": "trained as an ordinary class; excluded only when scoring",
+  "tiling": "4x4 non-overlapping 256px grid",
+  "protocol": {
+    "unk05": {
+      "threshold": 0.05,
+      "sub_tiles_kept": 286,
+      "sub_tiles_total": 320,
+      "pixels_scored": 18738804,
+      "pixels_excluded_unknown": 4492,
+      "px_acc": 0.9466311190404681,
+      "miou_present": 0.8116601835508324,
+      "iou_per_class": {
+        "Urban": 0.8949231737455293,
+        "Agriculture_Rangeland": 0.9050873602485479,
+        "Forest": 0.8643277765095975,
+        "Water": 0.9590408426498715,
+        "Barren": 0.4349217646006158,
+        "Unknown": null
+      },
+      "confusion": [
+        [
+          1457539,
+          81565,
+          19472,
+          37,
+          3246,
+          0
+        ],
+        [
+          50430,
+          8653371,
+          202286,
+          26157,
+          112426,
+          0
+        ],
+        [
+          13830,
+          178438,
+          2889013,
+          1337,
+          5805,
+          0
+        ],
+        [
+          96,
+          127001,
+          24701,
+          4527370,
+          10402,
+          0
+        ],
+        [
+          2460,
+          129139,
+          7615,
+          3626,
+          211442,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "unk25": {
+      "threshold": 0.25,
+      "sub_tiles_kept": 305,
+      "sub_tiles_total": 320,
+      "pixels_scored": 19844251,
+      "pixels_excluded_unknown": 144229,
+      "px_acc": 0.9480473715032127,
+      "miou_present": 0.8135331458255027,
+      "iou_per_class": {
+        "Urban": 0.8948061499624284,
+        "Agriculture_Rangeland": 0.9105655920187647,
+        "Forest": 0.8671261469551906,
+        "Water": 0.9590406394945864,
+        "Barren": 0.43612720069654387,
+        "Unknown": null
+      },
+      "confusion": [
+        [
+          1457539,
+          81565,
+          19472,
+          37,
+          3246,
+          0
+        ],
+        [
+          50435,
+          9540064,
+          209511,
+          26157,
+          127102,
+          0
+        ],
+        [
+          14038,
+          185827,
+          3063411,
+          1338,
+          6527,
+          0
+        ],
+        [
+          96,
+          127001,
+          24701,
+          4527370,
+          10402,
+          0
+        ],
+        [
+          2460,
+          129413,
+          8007,
+          3626,
+          224906,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  },
+  "eval_checkpoint": "results/finetune_experiments/finetune-lr3e-05/best.keras"
+}

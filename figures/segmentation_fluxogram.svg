@@ -1,0 +1,119 @@
+<svg width="990" height="775" viewBox="0 0 990 775" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#444" />
+    </marker>
+  </defs>
+
+  <style>
+    .label { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; font-weight: bold; fill: #222; }
+    .sublabel { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; fill: #555; }
+    .process { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; fill: #555; font-weight: 600; text-transform: uppercase; }
+    .highlight { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; fill: #d32f2f; font-weight: bold; text-transform: uppercase; }
+    .lane { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; fill: #999; font-style: italic; }
+    .box { stroke-width: 2; }
+    .pend { stroke-dasharray: 6 4; }
+  </style>
+
+  <!-- ══ Encoder pré-treinado ══════════════════════════════════════════════ -->
+  <rect class="box" x="810" y="10" width="150" height="70" rx="10" fill="#f1f8e9" stroke="#33691e"/>
+  <text x="885" y="40" text-anchor="middle" class="label">Encoder</text>
+  <text x="885" y="58" text-anchor="middle" class="sublabel">EfficientNetB0, ImageNet</text>
+
+  <line x1="885" y1="80" x2="885" y2="102" stroke="#666" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="895" y="98" text-anchor="start" class="process">Transferência</text>
+
+  <!-- ══ Raia de origem ════════════════════════════════════════════════════ -->
+  <text x="30" y="102" text-anchor="start" class="lane">Domínio de origem</text>
+
+  <rect class="box" x="30" y="110" width="150" height="70" rx="10" fill="#e3f2fd" stroke="#1565c0"/>
+  <text x="105" y="140" text-anchor="middle" class="label">DeepGlobe</text>
+  <text x="105" y="158" text-anchor="middle" class="sublabel">0,5 m/px, 7 classes</text>
+
+  <line x1="180" y1="145" x2="280" y2="145" stroke="#666" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="230" y="135" text-anchor="middle" class="process">Reamostragem</text>
+
+  <rect class="box" x="290" y="110" width="150" height="70" rx="10" fill="#fff3e0" stroke="#ef6c00"/>
+  <text x="365" y="140" text-anchor="middle" class="label">DeepGlobe a 2 m</text>
+  <text x="365" y="158" text-anchor="middle" class="sublabel">7 classes</text>
+
+  <line x1="440" y1="145" x2="540" y2="145" stroke="#666" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="490" y="127" text-anchor="middle" class="process">Recorte e fusão</text>
+  <text x="490" y="139" text-anchor="middle" class="process">de classes</text>
+
+  <rect class="box" x="550" y="110" width="150" height="70" rx="10" fill="#fff3e0" stroke="#ef6c00"/>
+  <text x="625" y="140" text-anchor="middle" class="label">Blocos de 256 px</text>
+  <text x="625" y="158" text-anchor="middle" class="sublabel">2 m/px, 6 classes</text>
+
+  <line x1="700" y1="145" x2="800" y2="145" stroke="#666" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="750" y="135" text-anchor="middle" class="process">Treinamento</text>
+
+  <rect class="box" x="810" y="110" width="150" height="70" rx="10" fill="#f1f8e9" stroke="#33691e"/>
+  <text x="885" y="140" text-anchor="middle" class="label">Modelo base</text>
+  <text x="885" y="158" text-anchor="middle" class="sublabel">U-Net</text>
+
+  <!-- ══ Raia alvo ═════════════════════════════════════════════════════════ -->
+  <text x="30" y="272" text-anchor="start" class="lane">Domínio alvo</text>
+
+  <rect class="box" x="30" y="280" width="150" height="70" rx="10" fill="#e3f2fd" stroke="#1565c0"/>
+  <text x="105" y="310" text-anchor="middle" class="label">Cenas CBERS-4A</text>
+  <text x="105" y="328" text-anchor="middle" class="sublabel">44 cenas, 2 e 8 m/px</text>
+
+  <line x1="180" y1="315" x2="280" y2="315" stroke="#666" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="230" y="297" text-anchor="middle" class="process">Empilhamento,</text>
+  <text x="230" y="309" text-anchor="middle" class="process">fusão e realce</text>
+
+  <rect class="box" x="290" y="280" width="150" height="70" rx="10" fill="#fff3e0" stroke="#ef6c00"/>
+  <text x="365" y="310" text-anchor="middle" class="label">Cenas fundidas</text>
+  <text x="365" y="328" text-anchor="middle" class="sublabel">2 m/px</text>
+
+  <line x1="440" y1="315" x2="540" y2="315" stroke="#666" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="490" y="297" text-anchor="middle" class="process">Cobertura</text>
+  <text x="490" y="309" text-anchor="middle" class="process">em grade</text>
+
+  <rect class="box" x="550" y="280" width="150" height="70" rx="10" fill="#fff3e0" stroke="#ef6c00"/>
+  <text x="625" y="310" text-anchor="middle" class="label">Imagens candidatas</text>
+  <text x="625" y="328" text-anchor="middle" class="sublabel">1024 px, 49.635</text>
+
+  <!-- ══ Etapas pendentes ══════════════════════════════════════════════════ -->
+  <line x1="625" y1="350" x2="625" y2="402" stroke="#666" stroke-width="1.5"
+        stroke-dasharray="6 4" marker-end="url(#arrowhead)"/>
+  <text x="635" y="380" text-anchor="start" class="process">Amostragem estratificada</text>
+
+  <rect class="box pend" x="550" y="410" width="150" height="70" rx="10" fill="#f3e5f5" stroke="#6a1b9a"/>
+  <text x="625" y="440" text-anchor="middle" class="label">Imagens sorteadas</text>
+  <text x="625" y="458" text-anchor="middle" class="sublabel">treino e teste</text>
+
+  <line x1="625" y1="480" x2="625" y2="532" stroke="#666" stroke-width="1.5"
+        stroke-dasharray="6 4" marker-end="url(#arrowhead)"/>
+  <text x="635" y="510" text-anchor="start" class="process">Anotação manual e recorte</text>
+
+  <rect class="box pend" x="550" y="540" width="150" height="70" rx="10" fill="#f3e5f5" stroke="#6a1b9a"/>
+  <text x="625" y="570" text-anchor="middle" class="label">Blocos anotados</text>
+  <text x="625" y="588" text-anchor="middle" class="sublabel">256 px, treino e teste</text>
+
+  <line x1="700" y1="575" x2="800" y2="575" stroke="#666" stroke-width="1.5"
+        stroke-dasharray="6 4" marker-end="url(#arrowhead)"/>
+  <text x="750" y="565" text-anchor="middle" class="process">Supervisão</text>
+
+  <line x1="885" y1="180" x2="885" y2="532" stroke="#666" stroke-width="1.5"
+        stroke-dasharray="6 4" marker-end="url(#arrowhead)"/>
+  <text x="895" y="360" text-anchor="start" class="highlight">Fine-tuning</text>
+
+  <rect class="box pend" x="810" y="540" width="150" height="70" rx="10" fill="#f1f8e9" stroke="#33691e"/>
+  <text x="885" y="570" text-anchor="middle" class="label">Modelo ajustado</text>
+  <text x="885" y="588" text-anchor="middle" class="sublabel">domínio brasileiro</text>
+
+  <line x1="885" y1="610" x2="885" y2="662" stroke="#666" stroke-width="1.5"
+        stroke-dasharray="6 4" marker-end="url(#arrowhead)"/>
+  <text x="895" y="640" text-anchor="start" class="process">Inferência</text>
+
+  <rect class="box pend" x="810" y="670" width="150" height="70" rx="10" fill="#fce4ec" stroke="#c2185b"/>
+  <text x="885" y="700" text-anchor="middle" class="label">Mapa de classes</text>
+  <text x="885" y="718" text-anchor="middle" class="sublabel">6 classes, 2 m/px</text>
+
+  <!-- ══ Legenda ═══════════════════════════════════════════════════════════ -->
+  <rect x="30" y="700" width="34" height="18" rx="4" fill="#ffffff" stroke="#777"
+        stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="74" y="713" text-anchor="start" class="lane">Traço tracejado: etapas ainda não executadas</text>
+</svg>
